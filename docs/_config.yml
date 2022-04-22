@@ -31,7 +31,7 @@ twitter_username: AndreMoeller87
 github_username:  anmoel
 
 # Build settings
-theme: minima
+theme: jekyll-theme-leap-day
 plugins:
   - jekyll-feed
 
