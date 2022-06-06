@@ -32,6 +32,7 @@ Optional:
 - Basic knowledge about Cloud Services and IaC
 - Basic git knowledge
 - AWS account, Google project or Azure subscription as Playground
+- `terraform` cli, `tfswitch` or  `tfenv` is installed
 
 ## sources and links
 
