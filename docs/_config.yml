@@ -21,17 +21,16 @@
 title: Workshops for Terraform
 email: development@andre-moeller.eu
 description: >-
-  This page is used by a
+  Terraform workshops from beginners to winners
 domain: anmoel.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://anmoel.github.io  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: /workshop-terraform/      # place folder name if the site is served in a subfolder
 twitter_username: AndreMoeller87
 github_username:  anmoel
 
-# Build settings
 theme: jekyll-theme-leap-day
-plugins:
-- jekyll-remote-theme
+plugins: []
+github: [metadata]
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,0 +1,86 @@
+---
+title: Core Components
+permalink: /components/
+---
+
+# Core Components
+
+## What is Terraform
+
+> HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share.
+> You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.
+> Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.
+
+## Components
+
+- Terraform CLI
+- Configuration code
+- Terraform state
+- Providers / plugins
+
+## Terraform CLI
+
+The command line interface to Terraform is via the `terraform` command, which accepts a variety of subcommands such as `terraform init` or `terraform plan`.
+
+### Important commands
+
+The `terraform init` command performs several different initialization steps in order to prepare the current working directory for use with Terraform.
+
+The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory and workspace. It uses state data to determine which real objects correspond to which declared resources, and checks the current state of each resource using the relevant infrastructure provider's API.
+Plans are usually run to validate configuration changes and confirm that the resulting actions are as expected. However, `terraform plan` can also save its plan as a runnable artifact, which `terraform apply` can use to carry out those exact changes.
+
+The `terraform apply` command performs a plan just like `terraform plan` does, but then actually carries out the planned changes to each resource using the relevant infrastructure provider's API. It asks for confirmation from the user before making any changes, unless it was explicitly told to skip approval.
+By default, `terraform apply` performs a fresh plan right before applying changes, and displays the plan to the user when asking for confirmation. However, it can also accept a plan file produced by `terraform plan` in lieu of running a new plan. You can use this to reliably perform an exact set of pre-approved changes, even if the configuration or the state of the real infrastructure has changed in the minutes since the original plan was created.
+
+The `terraform destroy` command destroys all of the resources being managed by the current working directory and workspace, using state data to determine which real world objects correspond to managed resources. Like `terraform apply`, it asks for confirmation before proceeding.
+
+### Debugging commands
+
+The `terraform output` command can get the values for the top-level output values of a configuration, which are often helpful when making use of the infrastructure Terraform has provisioned.
+
+The `terraform state list` command can list the resources being managed by the current working directory and workspace, providing a complete or filtered list.
+
+The `terraform state show` command can print all of the attributes of a given resource being managed by the current working directory and workspace, including generated read-only attributes like the unique ID assigned by the cloud provider.
+
+### Working with state
+
+The `terraform import` command is used to import existing resources into Terraform.
+
+The `terraform taint` command informs Terraform that a particular object has become degraded or damaged. Terraform represents this by marking the object as "tainted" in the Terraform state, and Terraform will propose to replace it in the next plan you create.
+You can use`terraform untaint` to remove the taint marker from that object.
+
+The `terraform state mv` command changes which resource address in your configuration is associated with a particular real-world object. Use this to preserve an object when renaming a resource, or when moving a resource into or out of a child module.
+
+The `terraform state rm` command tells Terraform to stop managing a resource as part of the current working directory and workspace, without destroying the corresponding real-world object. (You can later use `terraform import` to start managing that resource in a different workspace or a different Terraform configuration.)
+
+### Useful commands
+
+The `terraform show` command can generate human-readable versions of a state file or plan file, or generate machine-readable versions that can be integrated with other tools.
+
+The `terraform console` command starts an interactive shell for evaluating Terraform expressions, which can be a faster way to verify that a particular resource argument results in the value you expect.
+
+The `terraform fmt` command rewrites Terraform configuration files to a canonical format and style, so you don't have to waste time making minor adjustments for readability and consistency. It works well as a pre-commit hook in your version control system.
+
+The `terraform validate` command validates the syntax and arguments of the Terraform configuration files in a directory, including argument and attribute names and types for resources and modules. The plan and apply commands automatically validate a conf
+
+## Configuration code
+
+Code in the Terraform language is stored in plain text files with the .tf file extension.
+Terraform always runs in the context of a single root module. A complete Terraform configuration consists of a root module and the tree of child modules (which includes the modules called by the root module, any modules called by those modules, etc.).
+
+## Terraform state
+
+Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures.
+
+It can be stored in different backends <https://www.terraform.io/language/settings/backends>
+
+## Providers / plugins
+
+Each provider adds a set of resource types and/or data sources that Terraform can manage.
+
+Every resource type is implemented by a provider; without providers, Terraform can't manage any kind of infrastructure.
+
+Most providers configure a specific infrastructure platform (either cloud or self-hosted). Providers can also offer local utilities for tasks like generating random numbers for unique resource names.
+
+Each provider has its own documentation, describing its resource types and their arguments.
+The [Terraform Registry](https://registry.terraform.io/browse/providers) includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.
