@@ -103,6 +103,27 @@ locals {
 A local value assigns a name to an expression, so you can use the name multiple times within a module instead of repeating the expression.
 The expressions in local values are not limited to literal constants; they can also reference other values in the module in order to transform or combine them, including variables, resource attributes, or other local values.
 
+## Terraform Settings
+
+The special `terraform` configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
+
+* The `required_version` setting accepts a version constraint string, which specifies which versions of Terraform can be used with your configuration.
+
+* The `required_providers` block specifies all of the providers required by the current module, mapping each local provider name to a source address and a version constraint.
+
+  ```hcl
+  terraform {
+    required_providers {
+      aws = {
+        version = ">= 2.7.0"
+        source = "hashicorp/aws"
+      }
+    }
+  }
+  ```
+
+* Backend Configuration documents the form of a `backend` block, which selects and configures a backend for a Terraform configuration.
+
 ## Expressions
 
 ### References to Named Values
