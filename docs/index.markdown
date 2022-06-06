@@ -1,9 +1,9 @@
 ---
-title: Workshop Terraform
+title: Terraform Workshop "From beginner to winner"
 permalink: /
 ---
 
-# Workshop Terraform
+# Terraform Workshop "From beginner to winner"
 
 ## Topics
 

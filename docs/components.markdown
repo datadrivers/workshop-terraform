@@ -20,48 +20,73 @@ permalink: /components/
 
 ## Terraform CLI
 
-The command line interface to Terraform is via the `terraform` command, which accepts a variety of subcommands such as `terraform init` or `terraform plan`.
+The command line interface to Terraform is via the `terraform` command, which accepts a variety of subcommands such as *terraform init* or *terraform plan*.
 
 ### Important commands
 
-The `terraform init` command performs several different initialization steps in order to prepare the current working directory for use with Terraform.
+`terraform init` - The command performs several different initialization steps in order to prepare the current working directory for use with Terraform.
 
-The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory and workspace. It uses state data to determine which real objects correspond to which declared resources, and checks the current state of each resource using the relevant infrastructure provider's API.
-Plans are usually run to validate configuration changes and confirm that the resulting actions are as expected. However, `terraform plan` can also save its plan as a runnable artifact, which `terraform apply` can use to carry out those exact changes.
+---
 
-The `terraform apply` command performs a plan just like `terraform plan` does, but then actually carries out the planned changes to each resource using the relevant infrastructure provider's API. It asks for confirmation from the user before making any changes, unless it was explicitly told to skip approval.
-By default, `terraform apply` performs a fresh plan right before applying changes, and displays the plan to the user when asking for confirmation. However, it can also accept a plan file produced by `terraform plan` in lieu of running a new plan. You can use this to reliably perform an exact set of pre-approved changes, even if the configuration or the state of the real infrastructure has changed in the minutes since the original plan was created.
+`terraform plan` - The command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory and workspace. It uses state data to determine which real objects correspond to which declared resources, and checks the current state of each resource using the relevant infrastructure provider's API.
 
-The `terraform destroy` command destroys all of the resources being managed by the current working directory and workspace, using state data to determine which real world objects correspond to managed resources. Like `terraform apply`, it asks for confirmation before proceeding.
+Plans are usually run to validate configuration changes and confirm that the resulting actions are as expected. However, *terraform plan* can also save its plan as a runnable artifact, which *terraform apply* can use to carry out those exact changes.
+
+---
+
+`terraform apply` - The command performs a plan just like *terraform plan* does, but then actually carries out the planned changes to each resource using the relevant infrastructure provider's API. It asks for confirmation from the user before making any changes, unless it was explicitly told to skip approval.
+
+By default, *terraform apply* performs a fresh plan right before applying changes, and displays the plan to the user when asking for confirmation. However, it can also accept a plan file produced by *terraform plan* in lieu of running a new plan. You can use this to reliably perform an exact set of pre-approved changes, even if the configuration or the state of the real infrastructure has changed in the minutes since the original plan was created.
+
+---
+
+`terraform destroy` - The command destroys all of the resources being managed by the current working directory and workspace, using state data to determine which real world objects correspond to managed resources. Like *terraform apply*, it asks for confirmation before proceeding.
 
 ### Debugging commands
 
-The `terraform output` command can get the values for the top-level output values of a configuration, which are often helpful when making use of the infrastructure Terraform has provisioned.
+`terraform output` - The command can get the values for the top-level output values of a configuration, which are often helpful when making use of the infrastructure Terraform has provisioned.
 
-The `terraform state list` command can list the resources being managed by the current working directory and workspace, providing a complete or filtered list.
+---
 
-The `terraform state show` command can print all of the attributes of a given resource being managed by the current working directory and workspace, including generated read-only attributes like the unique ID assigned by the cloud provider.
+`terraform state list` - The command can list the resources being managed by the current working directory and workspace, providing a complete or filtered list.
+
+---
+
+`terraform state show` - The command can print all of the attributes of a given resource being managed by the current working directory and workspace, including generated read-only attributes like the unique ID assigned by the cloud provider.
 
 ### Working with state
 
-The `terraform import` command is used to import existing resources into Terraform.
+`terraform import` - The command is used to import existing resources into Terraform.
 
-The `terraform taint` command informs Terraform that a particular object has become degraded or damaged. Terraform represents this by marking the object as "tainted" in the Terraform state, and Terraform will propose to replace it in the next plan you create.
+---
+
+`terraform taint` - The command informs Terraform that a particular object has become degraded or damaged. Terraform represents this by marking the object as "tainted" in the Terraform state, and Terraform will propose to replace it in the next plan you create.
+
 You can use`terraform untaint` to remove the taint marker from that object.
 
-The `terraform state mv` command changes which resource address in your configuration is associated with a particular real-world object. Use this to preserve an object when renaming a resource, or when moving a resource into or out of a child module.
+---
 
-The `terraform state rm` command tells Terraform to stop managing a resource as part of the current working directory and workspace, without destroying the corresponding real-world object. (You can later use `terraform import` to start managing that resource in a different workspace or a different Terraform configuration.)
+`terraform state mv` - The command changes which resource address in your configuration is associated with a particular real-world object. Use this to preserve an object when renaming a resource, or when moving a resource into or out of a child module.
+
+---
+
+`terraform state rm` - The ≈command tells Terraform to stop managing a resource as part of the current working directory and workspace, without destroying the corresponding real-world object. (You can later use *terraform import* to start managing that resource in a different workspace or a different Terraform configuration.)
 
 ### Useful commands
 
-The `terraform show` command can generate human-readable versions of a state file or plan file, or generate machine-readable versions that can be integrated with other tools.
+`terraform show` - The command can generate human-readable versions of a state file or plan file, or generate machine-readable versions that can be integrated with other tools.
 
-The `terraform console` command starts an interactive shell for evaluating Terraform expressions, which can be a faster way to verify that a particular resource argument results in the value you expect.
+---
 
-The `terraform fmt` command rewrites Terraform configuration files to a canonical format and style, so you don't have to waste time making minor adjustments for readability and consistency. It works well as a pre-commit hook in your version control system.
+`terraform console` - The command starts an interactive shell for evaluating Terraform expressions, which can be a faster way to verify that a particular resource argument results in the value you expect.
 
-The `terraform validate` command validates the syntax and arguments of the Terraform configuration files in a directory, including argument and attribute names and types for resources and modules. The plan and apply commands automatically validate a conf
+---
+
+`terraform fmt` - The command rewrites Terraform configuration files to a canonical format and style, so you don't have to waste time making minor adjustments for readability and consistency. It works well as a pre-commit hook in your version control system.
+
+---
+
+`terraform validate` - The command validates the syntax and arguments of the Terraform configuration files in a directory, including argument and attribute names and types for resources and modules. The plan and apply commands automatically validate a conf
 
 ## Configuration code
 
