@@ -7,17 +7,17 @@ permalink: /
 
 ## Topics
 
-1. [Core Components](./components) (ca. 15 min)
-2. Terraform Workflow (ca. 15 min)
-3. HandsOn: "First Apply" (ca. 30 min)
-4. Configuration Language (ca. 15 min)
-5. HandsOn: "Cloud Storage" (ca. 30 min)
-6. Dependencies (ca. 15 min)
-7. HandsOn: "Cloud Storage Permissions" (ca. 30 min)
+1. [Core Components](components.markdown) (ca. 15 min)
+2. [Terraform Workflow](workflow.markdown) (ca. 15 min)
+3. [HandsOn: "First Apply"]() (ca. 30 min)
+4. [Configuration Language]() (ca. 15 min)
+5. [HandsOn: "Cloud Storage"]() (ca. 30 min)
+6. [Dependencies]() (ca. 15 min)
+7. [HandsOn: "Cloud Storage Permissions"]() (ca. 30 min)
 8. Break 15 Min
-9. Modules (ca. 15 min)
-10. HandsOn: "Modules" (ca. 30 min)
-11. Best Practices (ca. 15 min)
+9. [Modules]() (ca. 15 min)
+10. [HandsOn: "Modules"]() (ca. 30 min)
+11. [Best Practices]() (ca. 15 min)
 12. Questions (ca. 15 min)
 
 Optional:

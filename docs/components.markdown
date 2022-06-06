@@ -84,3 +84,5 @@ Most providers configure a specific infrastructure platform (either cloud or sel
 
 Each provider has its own documentation, describing its resource types and their arguments.
 The [Terraform Registry](https://registry.terraform.io/browse/providers) includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.
+
+## [Back](index.markdown)
