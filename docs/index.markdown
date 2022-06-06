@@ -9,15 +9,15 @@ permalink: /
 
 1. [Core Components](components.markdown) (ca. 15 min)
 2. [Terraform Workflow](workflow.markdown) (ca. 15 min)
-3. [HandsOn: "First Apply"]() (ca. 30 min)
-4. [Configuration Language]() (ca. 15 min)
-5. [HandsOn: "Cloud Storage"]() (ca. 30 min)
-6. [Dependencies]() (ca. 15 min)
-7. [HandsOn: "Cloud Storage Permissions"]() (ca. 30 min)
+3. [HandsOn: "First Apply"](handson1.markdown) (ca. 30 min)
+4. [Configuration Language](language.markdown) (ca. 15 min)
+5. [HandsOn: "Cloud Storage"](handson2.markdown) (ca. 30 min)
+6. [Dependencies](dependencies.markdown) (ca. 15 min)
+7. [HandsOn: "Cloud Storage Permissions"](handson3.markdown) (ca. 30 min)
 8. Break 15 Min
-9. [Modules]() (ca. 15 min)
-10. [HandsOn: "Modules"]() (ca. 30 min)
-11. [Best Practices]() (ca. 15 min)
+9. [Modules](modules.markdown) (ca. 15 min)
+10. [HandsOn: "Modules"](handson4.markdown) (ca. 30 min)
+11. [Best Practices](best-practices.markdown) (ca. 15 min)
 12. Questions (ca. 15 min)
 
 Optional:
