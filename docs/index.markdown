@@ -7,7 +7,7 @@ permalink: /
 
 ## Topics
 
-1. Core Components (ca. 15 min)
+1. [Core Components](./components) (ca. 15 min)
 2. Terraform Workflow (ca. 15 min)
 3. HandsOn: "First Apply" (ca. 30 min)
 4. Configuration Language (ca. 15 min)
