@@ -13,7 +13,7 @@ We want to create a new cloud storage bucket. After that we push a local file in
 
 1. Copy the module to generate a new bucket with other name
 2. Use thefirst bucket as terraform state backend
-3. Upload a local file with terraform apply
+3. Upload all files in the module with terraform apply
 4. Add permissions to this uploaded file
 
 ## [Back](index.markdown)
