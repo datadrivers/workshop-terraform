@@ -113,16 +113,23 @@ The special `terraform` configuration block type is used to configure some behav
 
   ```hcl
   terraform {
+    required_version = "1.2.2"
     required_providers {
-      aws = {
-        version = ">= 2.7.0"
-        source = "hashicorp/aws"
+      local = {
+        source  = "hashicorp/local"
+        version = "2.2.3"
       }
     }
   }
   ```
 
 * Backend Configuration documents the form of a `backend` block, which selects and configures a backend for a Terraform configuration.
+
+  ```hcl
+  terraform {
+    backend "local" {}
+  }
+  ```
 
 ## Expressions
 
