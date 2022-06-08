@@ -30,7 +30,10 @@ github_username:  anmoel
 
 theme: jekyll-theme-leap-day
 plugins: []
-github: [metadata]
+github:
+  url: https://github.com/anmoel/
+show_downloads: "true"
+google_analytics:
 
 # Exclude from processing.
 # The following items will not be processed, by default.
