@@ -28,7 +28,7 @@ baseurl: /workshop-terraform/      # place folder name if the site is served in 
 twitter_username: AndreMoeller87
 github_username:  anmoel
 
-theme: jekyll-theme-leap-day
+theme: jekyll-theme-cayman
 plugins: []
 github:
   url: https://github.com/anmoel/
