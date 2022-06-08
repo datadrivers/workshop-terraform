@@ -3,8 +3,6 @@ title: Dependencies
 permalink: /dependencies/
 ---
 
-# Dependencies
-
 Terraform builds a dependency graph from the Terraform configurations, and walks this graph to generate plans, refresh state, and more.
 
 To walk the graph, a standard depth-first traversal is done. Graph walking is done in parallel: a node is walked as soon as all of its dependencies are walked.

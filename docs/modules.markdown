@@ -3,8 +3,6 @@ title: Modules
 permalink: /modules/
 ---
 
-# Modules
-
 ## The Root Module
 
 Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.

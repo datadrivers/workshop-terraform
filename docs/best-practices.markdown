@@ -3,8 +3,6 @@ title: Best Practices
 permalink: /best-practices/
 ---
 
-# Best Practices
-
 1. terraform modules, incl. root modules, hold following files
     * versions.tf -  contains the terraform block with the attributes required_version and required_providers
     * main.tf - contains the module code

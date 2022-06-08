@@ -3,8 +3,6 @@ title: Configuration Language
 permalink: /language/
 ---
 
-# Configuration Language
-
 In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn exercise](https://github.com/anmoel/workshop-terraform/tree/main/exercises/first-apply/v2).
 
 ## Resources
@@ -39,7 +37,7 @@ Input variables let you customize aspects of Terraform modules without altering 
 
 When you declare variables in the root module of your configuration, you can set their values using CLI options and environment variables. When you declare them in child modules, the calling module should pass values in the module block.
 
-### Arguments
+### Variable Arguments
 
 Terraform defines the following optional arguments for variable declarations:
 
@@ -83,7 +81,7 @@ output "filename" {
 
 Output values make information about your infrastructure available on the command line, and can expose information for other Terraform configurations to use. Output values are similar to return values in programming languages.
 
-### Arguments
+### Output Arguments
 
 Terraform defines the following optional arguments for output declarations:
 

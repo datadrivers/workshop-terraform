@@ -3,8 +3,6 @@ title: Terraform Workflow
 permalink: /workflow/
 ---
 
-# Terraform Workflow
-
 1. `terraform init`
 
     1.1. Initializing the backend

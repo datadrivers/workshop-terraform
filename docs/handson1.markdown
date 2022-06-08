@@ -3,8 +3,6 @@ title: Hands on exercise "First apply"
 permalink: /handson1/
 ---
 
-# Hands on exercise "First apply"
-
 ## Goal
 
 You should get to know the Terraform workflow with a simple module

@@ -3,8 +3,6 @@ title: Hands on exercise “Cloud Storage Permissions”
 permalink: /handson3/
 ---
 
-# Hands on exercise “Cloud Storage Permissions”
-
 ## Goal
 
 We want to create a new cloud storage bucket. After that we push a local file into this bucket and allow a other account to read this file.

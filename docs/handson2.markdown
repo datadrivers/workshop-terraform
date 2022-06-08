@@ -1,9 +1,7 @@
 ---
 title: Hands on exercise "Cloud Storage"
-permalink: /handson1/
+permalink: /handson2/
 ---
-
-# Hands on exercise "Cloud Storage"
 
 ## Goal
 

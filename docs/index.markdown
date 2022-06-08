@@ -3,8 +3,6 @@ title: Terraform Workshop "From beginner to winner"
 permalink: /
 ---
 
-# Terraform Workshop "From beginner to winner"
-
 ## Topics
 
 1. [Core Components](components.markdown) (ca. 10 min)
