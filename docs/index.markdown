@@ -1,5 +1,5 @@
 ---
-title: Terraform Workshop "From beginner to winner"
+title: Terraform Workshop 4 Dullies in 4 hours
 permalink: /
 ---
 
