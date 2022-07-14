@@ -27,5 +27,5 @@ resource "google_storage_bucket_object" "files" {
   for_each = local.files
   name     = each.value
   source   = each.value
-  bucket   = google_storage_bucket.store.name
+  bucket   = module.gcs.name
 }
