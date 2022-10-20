@@ -1,6 +1,7 @@
 ---
 title: Terraform Workshop for beginners
 permalink: /
+nav_order: 1
 ---
 
 ## Topics

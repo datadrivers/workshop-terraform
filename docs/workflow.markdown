@@ -1,6 +1,7 @@
 ---
 title: Terraform Workflow
 permalink: /workflow/
+nav_order: 3
 ---
 
 1. `terraform init`
@@ -32,5 +33,3 @@ permalink: /workflow/
 4. `terraform output`(also included in apply)
 
     4.1. Show output of root module
-
-## [Back](index.markdown)

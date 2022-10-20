@@ -1,6 +1,7 @@
 ---
 title: Modules
 permalink: /modules/
+nav_order: 6
 ---
 
 ## The Root Module
@@ -64,5 +65,3 @@ The module installer supports installation from a number of different source typ
 * S3 buckets - `source = "s3::https://s3-eu-west-1.amazonaws.com/examplecorp-terraform-modules/vpc.zip"`
 * GCS buckets - `source = "gcs::https://www.googleapis.com/storage/v1/modules/foomodule.zip"`
 * Modules in Package Sub-directories - `source = hashicorp/consul/aws//modules/consul-cluster`, `source = "git::https://example.com/network.git//modules/vpc"`
-
-## [Back](index.markdown)

@@ -1,6 +1,7 @@
 ---
 title: Configuration Language
 permalink: /language/
+nav_order: 4
 ---
 
 In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2).
@@ -280,5 +281,3 @@ The iterator object (*setting* in the example above) has two attributes:
 
 * `key` is the map key or list element index for the current element. If the for_each expression produces a set value then key is identical to value and should not be used.
 * `value` is the value of the current element.
-
-## [Back](index.markdown)

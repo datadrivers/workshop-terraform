@@ -24,16 +24,30 @@ description: >-
   Terraform workshops from zero to hero
 domain: anmoel.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://anmoel.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-baseurl: /workshop-terraform/      # place folder name if the site is served in a subfolder
+baseurl: /workshop-terraform   # place folder name if the site is served in a subfolder
 twitter_username: AndreMoeller87
 github_username:  anmoel
 
-theme: jekyll-theme-cayman
+remote_theme: just-the-docs/just-the-docs@v0.3.3
 plugins: []
 github:
   url: https://github.com/anmoel/
 show_downloads: "true"
 google_analytics:
+
+#
+# just-the-docs configuration
+#
+
+heading_anchors: true
+search_enabled: true
+last_edit_timestamp: true
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/anmoel/workshop-terraform" # the github URL for your repo
+gh_edit_branch: "main" # the branch that your docs is served from
+gh_edit_source: docs # the source that your files originate from
+gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
 
 # Exclude from processing.
 # The following items will not be processed, by default.

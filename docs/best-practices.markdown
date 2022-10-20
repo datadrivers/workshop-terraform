@@ -1,6 +1,7 @@
 ---
 title: Best Practices
 permalink: /best-practices/
+nav_order: 7
 ---
 
 1. terraform modules, incl. root modules, hold following files
@@ -20,5 +21,3 @@ permalink: /best-practices/
 4. Variables are always defined with `type` and `description`
 5. Outputs are always defined with `value` and `description`
 6. Terraform version and plugin versions are pinned to specific version and specifically updated
-
-## [Back](index.markdown)

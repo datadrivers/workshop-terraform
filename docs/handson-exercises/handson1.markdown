@@ -1,6 +1,8 @@
 ---
 title: Hands on exercise "First apply"
-permalink: /handson1/
+permalink: /handson/1
+parent: HandsOn exercises
+nav_order: 1
 ---
 
 ## Goal
@@ -27,5 +29,3 @@ You should get to know the Terraform workflow with a simple module
    - apply
    - output
    - plan
-
-## [Back](index.markdown)
