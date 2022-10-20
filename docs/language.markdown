@@ -53,7 +53,7 @@ Terraform defines the following optional arguments for variable declarations:
 * string: a sequence of Unicode characters representing some text, like "hello".
 * number: a numeric value. The number type can represent both whole numbers like 15 and fractional values like 6.283185.
 * bool: a boolean value, either true or false. bool values can be used in conditional logic.
-* list (or tuple): a sequence of values, like ["us-west-1a", "us-west-1c"]. Elements in a list or tuple are identified by consecutive whole numbers, starting with zero.
+* list (or set): a sequence of values, like ["us-west-1a", "us-west-1c"]. Elements in a list or set are identified by consecutive whole numbers, starting with zero.
 * map (or object): a group of values identified by named labels, like {name = "Mabel", age = 52}.
 
 ### Set variables in terraform cli
@@ -192,6 +192,60 @@ some examples:
 {for s in var.list : s => upper(s)}
 ```
 
+### Iteration over resources
+
+By default, a resource block configures one real infrastructure object. Sometimes you want to manage several similar objects (like a fixed pool of compute instances) without writing a separate block for each one. Terraform has two ways to do this: count and for_each.
+
+#### count
+
+The `count` meta-argument accepts a whole number, and creates that many instances of the resource or module. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+```hcl
+resource "local_file" "foo" {
+  count = 3
+
+  content         = "Lorem Ipsum"
+  filename        = format("foo-%s.txt", count.index)
+  file_permission = "0644"
+}
+```
+
+This object has one attribute:
+
+* `count.index` — The distinct index number (starting with 0) corresponding to this instance.
+
+When count is set, Terraform distinguishes between the block itself and the multiple resource or module instances associated with it. Instances are identified by an index number, starting with 0.
+
+* `<TYPE>.<NAME>` or module. `<NAME>` (for example, aws_instance.server) refers to the resource block.
+* `<TYPE>.<NAME>[<INDEX>]` or module. `<NAME>[<INDEX>]` (for example, local_file.foo[0], local_file.foo[1], etc.) refers to individual instances.
+
+#### for_each
+
+The `for_each` meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+```hcl
+locals {
+  files = {
+    "foo.txt" = "Lorem Ipsum"
+  }
+}
+
+resource "local_file" "foo" {
+  for_each = local.files
+
+  content         = each.value
+  filename        = each.key
+  file_permission = "0644"
+}
+```
+
+In blocks where for_each is set, an additional each object is available in expressions, so you can modify the configuration of each instance. This object has two attributes:
+
+* `each.key` — The map key (or set member) corresponding to this instance.
+* `each.value` — The map value corresponding to this instance. (If a set was provided, this is the same as each.key.)
+
+The keys of the map (or all the values in the case of a set of strings) must be known values, or you will get an error message that for_each has dependencies that cannot be determined before apply, and a -target may be needed.
+
 ### Dynamic blocks
 
 ```hcl
@@ -202,6 +256,7 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
 
   dynamic "setting" {
     for_each = var.settings
+    # iterator = "set"
     content {
       namespace = setting.value["namespace"]
       name = setting.value["name"]
