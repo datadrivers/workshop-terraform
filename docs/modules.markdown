@@ -4,6 +4,8 @@ permalink: /modules/
 nav_order: 6
 ---
 
+# Modules
+
 ## The Root Module
 
 Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.

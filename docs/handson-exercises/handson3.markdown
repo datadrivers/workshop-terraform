@@ -1,9 +1,11 @@
 ---
-title: Hands on exercise “Cloud Storage with upload"
+title: Cloud Storage with upload
 permalink: /handson/3
 parent: HandsOn exercises
 nav_order: 3
 ---
+
+# HandsOn exercises "Cloud Storage with upload"
 
 ## Goal
 

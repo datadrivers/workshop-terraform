@@ -1,8 +1,10 @@
 ---
-title: Terraform Workshop for beginners
+title: Home
 permalink: /
 nav_order: 1
 ---
+
+# Terraform Workshop for beginners
 
 ## Topics
 

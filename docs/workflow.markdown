@@ -4,6 +4,8 @@ permalink: /workflow/
 nav_order: 3
 ---
 
+# Terraform Workflow
+
 1. `terraform init`
 
     1.1. Initializing the backend

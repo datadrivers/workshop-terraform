@@ -1,9 +1,11 @@
 ---
-title: Hands on exercise "First apply"
+title: First apply
 permalink: /handson/1
 parent: HandsOn exercises
 nav_order: 1
 ---
+
+# HandsOn exercises "First apply"
 
 ## Goal
 

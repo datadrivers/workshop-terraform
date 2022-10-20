@@ -1,9 +1,11 @@
 ---
-title: Hands on exercise “Modules”
+title: Modules
 permalink: /handson/4
 parent: HandsOn exercises
 nav_order: 4
 ---
+
+# HandsOn exercises "Modules"
 
 ## Goal
 

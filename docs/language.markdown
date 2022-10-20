@@ -4,6 +4,8 @@ permalink: /language/
 nav_order: 4
 ---
 
+# Configuration Language
+
 In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2).
 
 ## Resources
