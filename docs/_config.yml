@@ -22,8 +22,8 @@ title: Workshops for Terraform
 email: development@andre-moeller.eu
 description: >-
   Terraform workshops from zero to hero
-domain: anmoel.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://anmoel.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+domain: datadrivers.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://datadrivers.github.io  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: /workshop-terraform   # place folder name if the site is served in a subfolder
 twitter_username: AndreMoeller87
 github_username:  anmoel
@@ -31,7 +31,7 @@ github_username:  anmoel
 remote_theme: just-the-docs/just-the-docs@v0.3.3
 plugins: []
 github:
-  url: https://github.com/anmoel/
+  url: https://github.com/datadrivers/
 show_downloads: "true"
 google_analytics:
 
@@ -44,7 +44,7 @@ search_enabled: true
 last_edit_timestamp: true
 gh_edit_link: true
 gh_edit_link_text: "Edit this page on GitHub."
-gh_edit_repository: "https://github.com/anmoel/workshop-terraform" # the github URL for your repo
+gh_edit_repository: "https://github.com/datadrivers/workshop-terraform" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
 gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
@@ -57,14 +57,15 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
