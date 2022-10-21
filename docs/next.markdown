@@ -11,3 +11,4 @@ Here are a few topics with links for further self-study
 - [Templating](https://developer.hashicorp.com/terraform/language/expressions/strings#string-templates)
 - [Plugin Development](https://developer.hashicorp.com/terraform/plugin)
 - [Hashicorp Cloud Tutorials](https://developer.hashicorp.com/terraform/tutorials)
+- [Automate terraform with Datadrivers own Github Action for terragrunt and terraform](https://github.com/datadrivers/terragrunt-action)
