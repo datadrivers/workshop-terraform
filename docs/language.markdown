@@ -6,7 +6,7 @@ nav_order: 4
 
 # Configuration Language
 
-In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2).
+In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
 
 ## Resources
 
@@ -166,7 +166,7 @@ The main kinds of named values available in Terraform are:
 
 ### Functions
 
-The Terraform language has a number of [built-in functions](https://www.terraform.io/language/functions) that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
+The Terraform language has a number of [built-in functions](https://www.terraform.io/language/functions){:target="_blank"} that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
 
 ```hcl
 <FUNCTION NAME>(<ARGUMENT 1>, <ARGUMENT 2>)

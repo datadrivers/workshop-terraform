@@ -109,4 +109,4 @@ Every resource type is implemented by a provider; without providers, Terraform c
 Most providers configure a specific infrastructure platform (either cloud or self-hosted). Providers can also offer local utilities for tasks like generating random numbers for unique resource names.
 
 Each provider has its own documentation, describing its resource types and their arguments.
-The [Terraform Registry](https://registry.terraform.io/browse/providers) includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.
+The [Terraform Registry](https://registry.terraform.io/browse/providers){:target="_blank"} includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.

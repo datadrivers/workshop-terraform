@@ -29,7 +29,7 @@ module "consul" {
 
 In addition to modules from the local filesystem, Terraform can load modules from a public or private registry. This makes it possible to publish modules for others to use, and to use modules that others have published.
 
-The [Terraform Registry](https://registry.terraform.io/) hosts a broad collection of publicly available Terraform modules for configuring many kinds of common infrastructure. These modules are free to use, and Terraform can download them automatically if you specify the appropriate source and version in a module call block.
+The [Terraform Registry](https://registry.terraform.io/){:target="_blank"} hosts a broad collection of publicly available Terraform modules for configuring many kinds of common infrastructure. These modules are free to use, and Terraform can download them automatically if you specify the appropriate source and version in a module call block.
 
 ## Module arguments
 
