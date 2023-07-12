@@ -4,7 +4,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "tf_state" {
-  bucket = "${var.bucket_name}-${aws_region}-${local.aws_account_id}"
+  bucket = "${var.bucket_name}-${local.aws_region}-${local.aws_account_id}"
 
   tags = {
     Environment = "Dev"
