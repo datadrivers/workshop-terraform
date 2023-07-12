@@ -20,10 +20,33 @@ nav_order: 2
 
 ## Components
 
-- Terraform CLI
 - Configuration code
 - Terraform state
 - Providers / plugins
+- Terraform CLI
+
+## Configuration code
+
+Code in the Terraform language is stored in plain text files with the .tf file extension.
+Terraform always runs in the context of a single root module. A complete Terraform configuration consists of a root module and the tree of child modules (which includes the modules called by the root module, any modules called by those modules, etc.).
+
+## Terraform state
+
+Terraform keeps track of resources it manages and thus must store a state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures. With the state file TF can *determine the changes to make to the infrastructure so that it will match your configuration*.
+
+It can be stored in different backends <https://www.terraform.io/language/settings/backends>
+
+## Providers / plugins
+
+Each provider adds a set of resource types and/or data sources that Terraform can manage.
+
+Every resource type is implemented by a provider; without providers, Terraform can't manage any kind of infrastructure.
+
+Most providers configure a specific infrastructure platform (either cloud or self-hosted). Providers can also offer local utilities for tasks like generating random numbers for unique resource names.
+
+Each provider has its own documentation, describing its resource types and their arguments.
+
+The [Terraform Registry](https://registry.terraform.io/browse/providers){:target="_blank"} includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.
 
 ## Terraform CLI
 
@@ -94,25 +117,3 @@ You can use`terraform untaint` to remove the taint marker from that object.
 ---
 
 `terraform validate` - The command validates the syntax and arguments of the Terraform configuration files in a directory, including argument and attribute names and types for resources and modules. The plan and apply commands automatically validate a conf
-
-## Configuration code
-
-Code in the Terraform language is stored in plain text files with the .tf file extension.
-Terraform always runs in the context of a single root module. A complete Terraform configuration consists of a root module and the tree of child modules (which includes the modules called by the root module, any modules called by those modules, etc.).
-
-## Terraform state
-
-Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures.
-
-It can be stored in different backends <https://www.terraform.io/language/settings/backends>
-
-## Providers / plugins
-
-Each provider adds a set of resource types and/or data sources that Terraform can manage.
-
-Every resource type is implemented by a provider; without providers, Terraform can't manage any kind of infrastructure.
-
-Most providers configure a specific infrastructure platform (either cloud or self-hosted). Providers can also offer local utilities for tasks like generating random numbers for unique resource names.
-
-Each provider has its own documentation, describing its resource types and their arguments.
-The [Terraform Registry](https://registry.terraform.io/browse/providers){:target="_blank"} includes documentation for a wide range of providers developed by HashiCorp, third-party vendors, and our Terraform community. Use the "Documentation" link in a provider's header to browse its documentation.
