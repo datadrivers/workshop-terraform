@@ -114,7 +114,7 @@ The special `terraform` configuration block type is used to configure some behav
 
   ```hcl
   terraform {
-    required_version = "1.2.2"
+    required_version = "1.4.6"
     required_providers {
       local = {
         source  = "hashicorp/local"
@@ -182,7 +182,7 @@ The syntax of a conditional expression is as follows:
 condition ? true_val : false_val
 ```
 
-### for Expressions
+### for Expressions (loops)
 
 A for expression creates a complex type value by transforming another complex type value. Each element in the input value can correspond to either one or zero values in the result, and an arbitrary expression can be used to transform each input element into an output element.
 

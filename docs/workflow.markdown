@@ -35,3 +35,5 @@ nav_order: 3
 4. `terraform output`(also included in apply)
 
     4.1. Show output of root module
+
+![https://developer.hashicorp.com/terraform/intro](https://developer.hashicorp.com/_next/image?url=https%3A%2F%2Fcontent.hashicorp.com%2Fapi%2Fassets%3Fproduct%3Dterraform%26version%3Dv1.5.2%26asset%3Dwebsite%252Fimg%252Fdocs%252Fintro-terraform-workflow.png%26width%3D2038%26height%3D1773&w=2048&q=75)

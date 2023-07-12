@@ -8,9 +8,15 @@ nav_order: 2
 
 ## What is Terraform
 
-> HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share.
-> You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.
+> HashiCorp Terraform is an *infrastructure as code* tool that lets you define both cloud and on-prem resources in *human-readable configuration* files that you can *version*, *reuse*, and *share*.
+>
+> You can then use a *consistent workflow* to provision and manage all of your infrastructure throughout its lifecycle.
+>
 > Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.
+>
+> Terraform takes an **immutable** approach to infrastructure, reducing the complexity of upgrading or modifying your services and infrastructure.
+
+![https://developer.hashicorp.com/terraform/intro](https://developer.hashicorp.com/_next/image?url=https%3A%2F%2Fcontent.hashicorp.com%2Fapi%2Fassets%3Fproduct%3Dterraform%26version%3Dv1.5.2%26asset%3Dwebsite%252Fimg%252Fdocs%252Fintro-terraform-apis.png%26width%3D2048%26height%3D644&w=2048&q=75)
 
 ## Components
 

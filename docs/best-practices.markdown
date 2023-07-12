@@ -19,7 +19,7 @@ nav_order: 7
     * main.tf - contains the module code
     * variables.tf - contains all module variables
     * outputs.tf - contains all output objects
-3. Terraform resource name are written in `snake_case`
+3. Terraform resource names are written in `snake_case`
 4. Variables are always defined with `type` and `description`
 5. Outputs are always defined with `value` and `description`
 6. Terraform version and plugin versions are pinned to specific version and specifically updated
