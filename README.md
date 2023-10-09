@@ -1,6 +1,6 @@
-# workshop-terraform
+# Terraform Workshop
 
-This Repository includes the documentation and the code examples for a terraform workshop
+This repository includes the documentation and the code examples for a terraform workshop.
 
 ## Development
 
