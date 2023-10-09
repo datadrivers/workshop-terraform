@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Workshops for Terraform
+title: Terraform Workshop
 email: development@andre-moeller.eu
 description: >-
   Terraform workshops from zero to hero
@@ -27,6 +27,7 @@ url: https://datadrivers.github.io  # the base hostname and protocol for your si
 baseurl: /workshop-terraform   # place folder name if the site is served in a subfolder
 twitter_username: AndreMoeller87
 github_username:  anmoel
+repository: datadrivers/workshop-terraform
 
 remote_theme: just-the-docs/just-the-docs@v0.3.3
 plugins: []
