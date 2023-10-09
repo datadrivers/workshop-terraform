@@ -4,9 +4,11 @@ permalink: /language/
 nav_order: 4
 ---
 
-# Configuration Language
+# HashiCorp Configuration Language (HCL)
 
 In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
+
+The configuration language is used to describe the desired state of your infrastructure in a human-readable format. It is used to define the resources you want to create and configure.
 
 ## Resources
 
@@ -18,10 +20,10 @@ resource "local_file" "foo" {
 }
 ```
 
-A resource block declares a resource of a given type ("local_file") with a given local name ("foo").
+A resource block declares a resource of a given type (`"local_file"`) with a given local name (`"foo"`).
 The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside that module's scope.
 The resource type and name together serve as an identifier for a given resource and so must be unique within a module.
-Within the block body (between { and }) are the configuration arguments for the resource itself. Most arguments in this section depend on the resource type.
+Within the block body (between `{` and `}`) are the configuration arguments for the resource itself. Most arguments in this section depend on the resource type.
 
 ## Data Sources
 
@@ -44,20 +46,20 @@ When you declare variables in the root module of your configuration, you can set
 
 Terraform defines the following optional arguments for variable declarations:
 
-* default - A default value which then makes the variable optional.
-* type - This argument specifies what value types are accepted for the variable.
-* description - This specifies the input variable's documentation.
-* validation - A block to define validation rules, usually in addition to type constraints.
-* sensitive - Limits Terraform UI output when the variable is used in configuration.
-* nullable - Specify if the variable can be null within the module.
+* `default` - A default value which then makes the variable optional.
+* `type` - This argument specifies what value types are accepted for the variable.
+* `description` - This specifies the input variable's documentation.
+* `validation` - A block to define validation rules, usually in addition to type constraints.
+* `sensitive` - Limits Terraform UI output when the variable is used in configuration.
+* `nullable` - Specify if the variable can be null within the module.
 
 ### Types
 
-* string: a sequence of Unicode characters representing some text, like "hello".
-* number: a numeric value. The number type can represent both whole numbers like 15 and fractional values like 6.283185.
-* bool: a boolean value, either true or false. bool values can be used in conditional logic.
-* list (or set): a sequence of values, like ["us-west-1a", "us-west-1c"]. Elements in a list or set are identified by consecutive whole numbers, starting with zero.
-* map (or object): a group of values identified by named labels, like {name = "Mabel", age = 52}.
+* `string`: a sequence of Unicode characters representing some text, like "hello".
+* `number`: a numeric value. The number type can represent both whole numbers like 15 and fractional values like 6.283185.
+* `bool`: a boolean value, either true or false. bool values can be used in conditional logic.
+* `list` (or `set`): a sequence of values, like `["us-west-1a", "us-west-1c"]`. Elements in a list or set are identified by consecutive whole numbers, starting with zero.
+* `map` (or `object`): a group of values identified by named labels, like `{name = "Mabel", age = 52}`.
 
 ### Set variables in terraform cli
 
@@ -68,10 +70,10 @@ Terraform defines the following optional arguments for variable declarations:
 Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
 
 1. Environment variables
-2. The terraform.tfvars file, if present.
-3. The terraform.tfvars.json file, if present.
-4. Any *.auto.tfvars or*.auto.tfvars.json files, processed in lexical order of their filenames.
-5. Any -var and -var-file options on the command line, in the order they are provided.
+2. The `terraform.tfvars` file, if present.
+3. The `terraform.tfvars.json` file, if present.
+4. Any `*.auto.tfvars` or `*.auto.tfvars.json` files, processed in lexical order of their filenames.
+5. Any `-var` and `-var-file` options on the command line, in the order they are provided.
 
 ## Outputs
 
@@ -88,10 +90,10 @@ Output values make information about your infrastructure available on the comman
 
 Terraform defines the following optional arguments for output declarations:
 
-* value - The required value argument takes an expression whose result is to be returned to the user
-* description - The description should concisely explain the purpose of the output and what kind of value is expected. This description string might be included in documentation about the module, and so it should be written from the perspective of the user of the module rather than its maintainer. For commentary for module maintainers, use comments.
-* sensitive - An output can be marked as containing sensitive material using the optional sensitive argument. Terraform will hide values marked as sensitive in the messages from *terraform plan* and *terraform apply*.
-* depends_on - Since output values are just a means for passing data out of a module, it is usually not necessary to worry about their relationships with other nodes in the dependency graph. However, when a parent module accesses an output value exported by one of its child modules, the dependencies of that output value allow Terraform to correctly determine the dependencies between resources defined in different modules.
+* `value` - The required value argument takes an expression whose result is to be returned to the user
+* `description` - The description should concisely explain the purpose of the output and what kind of value is expected. This description string might be included in documentation about the module, and so it should be written from the perspective of the user of the module rather than its maintainer. For commentary for module maintainers, use comments.
+* `sensitive` - An output can be marked as containing sensitive material using the optional sensitive argument. Terraform will hide values marked as sensitive in the messages from `terraform plan` and `terraform apply`.
+* `depends_on` - Since output values are just a means for passing data out of a module, it is usually not necessary to worry about their relationships with other nodes in the dependency graph. However, when a parent module accesses an output value exported by one of its child modules, the dependencies of that output value allow Terraform to correctly determine the dependencies between resources defined in different modules.
 
 ## Local Values
 
@@ -109,7 +111,6 @@ The expressions in local values are not limited to literal constants; they can a
 The special `terraform` configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
 
 * The `required_version` setting accepts a version constraint string, which specifies which versions of Terraform can be used with your configuration.
-
 * The `required_providers` block specifies all of the providers required by the current module, mapping each local provider name to a source address and a version constraint.
 
   ```hcl
@@ -168,8 +169,8 @@ The main kinds of named values available in Terraform are:
 
 The Terraform language has a number of [built-in functions](https://www.terraform.io/language/functions){:target="_blank"} that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
 
-```hcl
-<FUNCTION NAME>(<ARGUMENT 1>, <ARGUMENT 2>)
+```
+<FUNCTION NAME>(<ARGUMENT 1>, <ARGUMENT 2>, ...)
 ```
 
 ### Conditions
@@ -178,7 +179,7 @@ The condition can be any expression that resolves to a boolean value. This will 
 
 The syntax of a conditional expression is as follows:
 
-```hcl
+```
 condition ? true_val : false_val
 ```
 

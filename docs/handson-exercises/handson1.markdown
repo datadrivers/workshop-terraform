@@ -26,8 +26,8 @@ You should get to know the Terraform workflow with a simple module
    ```
 
 3. Run terraform workflow commands
-   - init
-   - plan
-   - apply
-   - output
-   - plan
+   - `init`
+   - `plan`
+   - `apply`
+   - `output`
+   - `plan`
