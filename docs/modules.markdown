@@ -8,7 +8,7 @@ nav_order: 6
 
 ## The Root Module
 
-Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.
+Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the `.tf` files in the main working directory.
 
 ## Child Modules
 
@@ -33,7 +33,7 @@ The [Terraform Registry](https://registry.terraform.io/){:target="_blank"} hosts
 
 ## Module arguments
 
-Within the block body (between { and }) are the arguments for the module. Module calls use the following kinds of arguments:
+Within the block body (between `{` and `}`) are the arguments for the module. Module calls use the following kinds of arguments:
 
 * The `source` argument is mandatory for all modules.
 * The `version` argument is recommended for modules from a registry.

@@ -9,7 +9,7 @@ nav_order: 2
 
 ## Goal
 
-We want to create our first cloud storage bucket. This bucket should be used as terraform state backend in our next examples.
+We want to create our first cloud storage bucket. This bucket should be used as Terraform state backend in our next examples.
 
 ## Steps
 
