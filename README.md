@@ -11,3 +11,9 @@ cd docs
 bundle install
 bundle exec jekyll serve
 ```
+
+or if you do not have faith in your local ruby installation
+
+```bash
+docker run --rm -ti -p 4000:4000 -v "$(pwd)":/repo ruby:3.2.8-bookworm /repo/run.sh
+```
