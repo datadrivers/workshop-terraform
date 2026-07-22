@@ -18,7 +18,20 @@ Terraform takes an **immutable** approach to infrastructure, reducing the comple
 
 Terraform is **declarative**, which means you can describe your desired state of infrastructure, and Terraform will build that infrastructure for you.
 
-![https://developer.hashicorp.com/terraform/intro](https://developer.hashicorp.com/_next/image?url=https%3A%2F%2Fcontent.hashicorp.com%2Fapi%2Fassets%3Fproduct%3Dterraform%26version%3Dv1.5.2%26asset%3Dwebsite%252Fimg%252Fdocs%252Fintro-terraform-apis.png%26width%3D2048%26height%3D644&w=2048&q=75)
+![Terraform components overview]({{ site.baseurl }}/assets/images/intro-terraform-apis.png)
+
+## Terraform and OpenTofu in 2026
+
+- Terraform 1.5.x and earlier remain under MPL 2.0, but Terraform 1.6 and later use BUSL-1.1. For customer environments, especially regulated or procurement-heavy ones, that licensing change is worth reviewing explicitly before standardizing on the toolchain.
+- OpenTofu is an MPL-2.0 fork under Linux Foundation stewardship and is designed as a near drop-in replacement for many Terraform beginner and intermediate workflows.
+- HashiCorp is now part of IBM, so Terraform should be evaluated as an IBM product when discussing vendor posture, support, and procurement.
+- In practice, teams should decide early whether they want HashiCorp Terraform plus HCP Terraform, or an OpenTofu-based workflow, and then keep examples, CI, and policy tooling consistent.
+
+Useful starting points:
+
+- [Terraform documentation](https://developer.hashicorp.com/terraform){:target="_blank"}
+- [OpenTofu project and docs](https://opentofu.org/){:target="_blank"}
+- [HashiCorp, an IBM company](https://www.ibm.com/products/hashicorp){:target="_blank"}
 
 ## Components
 
@@ -104,21 +117,55 @@ The command can print all of the attributes of a given resource being managed by
 
 **terraform import**
 
-The command is used to import existing resources into Terraform.
+The command is used to import existing resources into Terraform. For current workflows, prefer config-driven `import {}` blocks in your configuration so imports are reviewable and can be applied as part of normal plans and applies.
 
-**terraform taint**
+```hcl
+resource "aws_s3_bucket" "logs" {
+	bucket = "company-logs-prod"
+}
 
-The command informs Terraform that a particular object has become degraded or damaged. Terraform represents this by marking the object as "tainted" in the Terraform state, and Terraform will propose to replace it in the next plan you create.
+import {
+	to = aws_s3_bucket.logs
+	id = "company-logs-prod"
+}
+```
 
-You can use`terraform untaint` to remove the taint marker from that object.
+**Replace a resource**
+
+The old `terraform taint` and `terraform untaint` commands are deprecated. The current workflow is to tell Terraform exactly which object should be replaced during the next apply, for example with `terraform apply -replace=aws_s3_bucket.example`.
+
+This keeps replacement intent explicit in the plan, instead of mutating state ahead of time.
 
 **terraform state mv**
 
-The command changes which resource address in your configuration is associated with a particular real-world object. Use this to preserve an object when renaming a resource, or when moving a resource into or out of a child module.
+The command changes which resource address in your configuration is associated with a particular real-world object. For refactors, prefer `moved {}` blocks in configuration so address changes are tracked declaratively and reviewed with the rest of the change.
+
+```hcl
+resource "aws_s3_bucket" "application_logs" {
+	bucket = "company-logs-prod"
+}
+
+moved {
+	from = aws_s3_bucket.logs
+	to   = aws_s3_bucket.application_logs
+}
+```
 
 **terraform state rm**
 
-The command tells Terraform to stop managing a resource as part of the current working directory and workspace, without destroying the corresponding real-world object. (You can later use `terraform import` to start managing that resource in a different workspace or a different Terraform configuration.)
+The command tells Terraform to stop managing a resource as part of the current working directory and workspace, without destroying the corresponding real-world object. For planned removals from state, prefer `removed {}` blocks where available so the change is captured in configuration instead of being performed as one-off state surgery.
+
+```hcl
+removed {
+	from = aws_s3_bucket.application_logs
+
+	lifecycle {
+		destroy = false
+	}
+}
+```
+
+In general, the imperative state commands still exist, but current best practice is to prefer declarative `import {}`, `moved {}`, and `removed {}` blocks whenever the change is part of normal configuration evolution.
 
 ---
 

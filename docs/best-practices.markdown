@@ -22,4 +22,4 @@ nav_order: 7
 3. Terraform resource names are written in `snake_case`
 4. Variables are always defined with `type` and `description`
 5. Outputs are always defined with `value` and `description`
-6. Terraform version and plugin versions are pinned to specific version and specifically updated
+6. Terraform and provider versions use explicit version constraints and are reviewed regularly; shared modules usually prefer compatible ranges like `>=` or `~>`, while root modules can be pinned more tightly when needed.
