@@ -161,7 +161,7 @@ removed {
 
 	lifecycle {
 		destroy = false
-	}
+  }
 }
 ```
 
