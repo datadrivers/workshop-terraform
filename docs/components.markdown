@@ -121,7 +121,7 @@ The command is used to import existing resources into Terraform. For current wor
 
 ```hcl
 resource "aws_s3_bucket" "logs" {
-	bucket = "company-logs-prod"
+  bucket = "company-logs-prod"
 }
 
 import {
