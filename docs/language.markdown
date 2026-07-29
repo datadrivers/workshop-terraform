@@ -6,7 +6,7 @@ nav_order: 4
 
 # HashiCorp Configuration Language (HCL)
 
-In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/datadrivers/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
+In this section, the configuration language for Terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/datadrivers/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
 
 The configuration language is used to describe the desired state of your infrastructure in a human-readable format. It is used to define the resources you want to create and configure.
 
