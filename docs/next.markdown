@@ -20,4 +20,4 @@ Here are a few topics with links for further self-study
 - Terraform Workspaces
 - Tflint
 - terraform-docs
-- Terragrunt, with the caveat that some of its historical differentiators have narrowed as OpenTofu absorbed features such as state encryption, provider-defined functions, `for_each` in provider blocks, and earlier variable evaluation.
+- Terragrunt (evaluate based on your workflow; some historical differentiators have narrowed as Terraform/OpenTofu have evolved).
