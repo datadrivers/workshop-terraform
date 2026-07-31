@@ -220,10 +220,9 @@
         startSlide(composedTitle(currentSectionTitle, currentSubsectionTitle, false), contextLabel(currentSectionTitle, currentSubsectionTitle));
       } else if (isCommandMarker(node)) {
         const commandTitle = commandMarkerTitle(node);
-        if (currentSlide && currentSlideBodyNodes > 0) {
-          startSlide(composedTitle(currentSectionTitle, commandTitle, false), contextLabel(currentSectionTitle, commandTitle));
-        }
+        startSlide(composedTitle(currentSectionTitle, commandTitle, false), contextLabel(currentSectionTitle, commandTitle));
         currentSubsectionTitle = commandTitle;
+        return;
       }
 
       if (!currentSlide) {
