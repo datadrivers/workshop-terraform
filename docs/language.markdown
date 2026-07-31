@@ -6,7 +6,7 @@ nav_order: 4
 
 # HashiCorp Configuration Language (HCL)
 
-In this section, the configuration language for terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/anmoel/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
+In this section, the configuration language for Terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/datadrivers/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
 
 The configuration language is used to describe the desired state of your infrastructure in a human-readable format. It is used to define the resources you want to create and configure.
 
@@ -115,11 +115,11 @@ The special `terraform` configuration block type is used to configure some behav
 
   ```hcl
   terraform {
-    required_version = "1.4.6"
+    required_version = ">= 1.15.0"
     required_providers {
       local = {
         source  = "hashicorp/local"
-        version = "2.2.3"
+        version = "~> 2.0"
       }
     }
   }
@@ -167,7 +167,7 @@ The main kinds of named values available in Terraform are:
 
 ### Functions
 
-The Terraform language has a number of [built-in functions](https://www.terraform.io/language/functions){:target="_blank"} that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
+The Terraform language has a number of [built-in functions](https://developer.hashicorp.com/terraform/language/functions){:target="_blank"} that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
 
 ```
 <FUNCTION NAME>(<ARGUMENT 1>, <ARGUMENT 2>, ...)

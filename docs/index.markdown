@@ -41,10 +41,12 @@ In order to participate in the workshop, the following requirements should be me
 
 **Optional**:
 
+- `terraform test`
+- `check {}` blocks
 - Terraform Workspaces
 - Tflint
 - terraform-docs
-- Terragrunt
+- Terragrunt (with the usual caveat that OpenTofu now covers part of its old value proposition)
 
 ## Sources and links
 
