@@ -358,6 +358,13 @@
         ? "Chapter " + (currentIndex + 1) + " / " + pages.length
         : "";
 
+    const safeTitle = title
+      ? String(title).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      : "";
+    const safeProgress = progress
+      ? String(progress).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      : "";
+
     return [
       '<div class="presentation-toolbar__group">',
       '  <a class="presentation-toolbar__link" href="' + buildPresentationPath(pages[0].path, false) + '">Overview</a>',
@@ -365,8 +372,8 @@
       targets.nextHref ? '  <a class="presentation-toolbar__link presentation-toolbar__link--primary" href="' + targets.nextHref + '">' + targets.nextLabel + '</a>' : '',
       '</div>',
       '<div class="presentation-toolbar__status">',
-      title ? '  <span class="presentation-toolbar__title">' + title + '</span>' : '',
-      progress ? '  <span class="presentation-toolbar__progress">' + progress + '</span>' : '',
+      safeTitle ? '  <span class="presentation-toolbar__title">' + safeTitle + '</span>' : '',
+      safeProgress ? '  <span class="presentation-toolbar__progress">' + safeProgress + '</span>' : ''
       '</div>',
       '<div class="presentation-toolbar__group">',
       toggleHref ? '  <a class="presentation-toolbar__link" href="' + toggleHref + '">' + toggleLabel + '</a>' : '',
