@@ -8,6 +8,8 @@ nav_order: 1
 
 This workshop is designed for beginners and gives an introduction to the basic concepts of Terraform.
 
+[Open presentation mode]({{ '/presentation/' | relative_url }}) for a workshop-friendly launcher that reuses the existing chapter pages.
+
 ## Requirements
 
 In order to participate in the workshop, the following requirements should be met:
