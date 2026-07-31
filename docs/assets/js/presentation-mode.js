@@ -398,6 +398,7 @@
     const targets = navigationTargets();
 
     if (event.key === "ArrowRight" && targets.nextHref) {
+      event.preventDefault();
       if (slideState && slideState.index < slideState.count() - 1) {
         slideState.set(slideState.index + 1);
       } else {
@@ -406,6 +407,7 @@
     }
 
     if (event.key === "ArrowLeft" && targets.previousHref) {
+      event.preventDefault();
       if (slideState && slideState.index > 0) {
         slideState.set(slideState.index - 1);
       } else {
