@@ -372,7 +372,7 @@
       '</div>',
       '<div class="presentation-toolbar__status">',
       safeTitle ? '  <span class="presentation-toolbar__title">' + safeTitle + '</span>' : '',
-      safeProgress ? '  <span class="presentation-toolbar__progress">' + safeProgress + '</span>' : ''
+      safeProgress ? '  <span class="presentation-toolbar__progress">' + safeProgress + '</span>' : '',
       '</div>',
       '<div class="presentation-toolbar__group">',
       toggleHref ? '  <a class="presentation-toolbar__link" href="' + toggleHref + '">' + toggleLabel + '</a>' : '',

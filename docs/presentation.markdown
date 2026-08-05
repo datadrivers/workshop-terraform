@@ -7,9 +7,9 @@ nav_exclude: true
 
 <div class="presentation-launcher">
 
-# Workshop Presentation Mode
+<h1>Workshop Presentation Mode</h1>
 
-This is a lightweight presenter layer on top of the existing workshop pages. It keeps the normal documentation intact and opens each chapter in a cleaner workshop view with keyboard navigation.
+<p>This is a lightweight presenter layer on top of the existing workshop pages. It keeps the normal documentation intact and opens each chapter in a cleaner workshop view with keyboard navigation.</p>
 
 <div class="presentation-launcher__actions">
   <a class="btn btn-primary" href="{{ '/components/' | relative_url }}?presentation=1">Start chapter presentation</a>
@@ -17,15 +17,17 @@ This is a lightweight presenter layer on top of the existing workshop pages. It 
   <a class="btn" href="{{ '/' | relative_url }}">Open normal docs</a>
 </div>
 
-## How it works
+<h2>How it works</h2>
 
-- The existing workshop pages stay unchanged as the source material.
-- Appending `?presentation=1` opens a chapter in presenter mode.
-- Appending `?presentation=1&sections=1` turns each `##` section into its own slide.
-- Left and right arrow keys move between chapters or sections, depending on the selected mode.
-- The bottom toolbar lets you jump back to the overview or open the normal docs view.
+<ul>
+  <li>The existing workshop pages stay unchanged as the source material.</li>
+  <li>Appending <code>?presentation=1</code> opens a chapter in presenter mode.</li>
+  <li>Appending <code>?presentation=1&amp;sections=1</code> turns each <code>##</code> section into its own slide.</li>
+  <li>Left and right arrow keys move between chapters or sections, depending on the selected mode.</li>
+  <li>The bottom toolbar lets you jump back to the overview or open the normal docs view.</li>
+</ul>
 
-## Workshop flow
+<h2>Workshop flow</h2>
 
 <div class="presentation-launcher__grid">
   <section class="presentation-launcher__card">
