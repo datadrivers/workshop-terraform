@@ -27,6 +27,17 @@ Within the block body (between `{` and `}`) are the configuration arguments for 
 
 ## Data Sources
 
+```hcl
+data "aws_ami" "example" {
+  most_recent = true
+  owners = ["self"]
+  tags = {
+    Name   = "app-server"
+    Tested = "true"
+  }
+}
+```
+
 Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
 
 ## Variables
@@ -223,6 +234,8 @@ When count is set, Terraform distinguishes between the block itself and the mult
 * `<TYPE>.<NAME>` or module. `<NAME>` (for example, aws_instance.server) refers to the resource block.
 * `<TYPE>.<NAME>[<INDEX>]` or module. `<NAME>[<INDEX>]` (for example, local_file.foo[0], local_file.foo[1], etc.) refers to individual instances.
 
+<div class="slide-break"></div>
+
 #### for_each
 
 The `for_each` meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
@@ -277,6 +290,8 @@ A dynamic block acts much like a for expression, but produces nested blocks inst
 * The `iterator` argument (optional) sets the name of a temporary variable that represents the current element of the complex value. If omitted, the name of the variable defaults to the label of the dynamic block ("setting" in the example above).
 * The labels argument (optional) is a list of strings that specifies the block labels, in order, to use for each generated block. You can use the temporary iterator variable in this value.
 * The nested *content* block defines the body of each generated block. You can use the temporary iterator variable inside this block.
+
+<div class="slide-break"></div>
 
 Since the *for_each* argument accepts any collection or structural value, you can use a for expression or splat expression to transform an existing collection.
 

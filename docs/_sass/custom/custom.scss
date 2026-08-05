@@ -1,0 +1,238 @@
+.presentation-launcher {
+  max-width: 72rem;
+}
+
+.presentation-launcher__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.presentation-launcher__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  margin-top: 1.5rem;
+}
+
+.presentation-launcher__card {
+  border: 1px solid #d0d7de;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0.35rem 1.2rem rgba(15, 23, 42, 0.06);
+}
+
+.presentation-launcher__card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.presentation-launcher__links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+body.presentation-mode .side-bar,
+body.presentation-mode .main-header {
+  display: none !important;
+}
+
+.slide-break {
+  display: none;
+}
+
+.presentation-logo {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 140px;
+  height: auto;
+  z-index: 40;
+  pointer-events: none;
+}
+
+body.presentation-mode .main {
+  margin-left: 0;
+  max-width: none;
+}
+
+body.presentation-mode .main-content-wrap {
+  padding-top: 2rem;
+}
+
+body.presentation-mode .main-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-bottom: 6rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+body.presentation-mode .main-content h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+body.presentation-mode .main-content h2 {
+  margin-top: 2.5rem;
+  font-size: 2rem;
+}
+
+body.presentation-mode .main-content h3 {
+  font-size: 1.5rem;
+}
+
+body.presentation-mode .main-content p,
+body.presentation-mode .main-content li {
+  max-width: 68rem;
+}
+
+body.presentation-mode .main-content pre {
+  font-size: 1rem;
+}
+
+body.presentation-mode .main-content img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.presentation-mode--sections .main-content {
+  max-width: 76rem;
+}
+
+.presentation-slides {
+  position: relative;
+}
+
+.presentation-slide {
+  display: none;
+  min-height: calc(100vh - 10rem);
+  padding: 1rem 0 5rem;
+}
+
+.presentation-slide.is-active {
+  display: block;
+}
+
+.presentation-slide__context {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+body.presentation-mode--sections .presentation-slide > h1,
+body.presentation-mode--sections .presentation-slide > h2,
+body.presentation-mode--sections .presentation-slide > h3 {
+  display: none;
+}
+
+.presentation-slide--title.is-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body.presentation-mode--sections .presentation-slide--title > .presentation-slide__chapter-title {
+  display: block;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  max-width: 60rem;
+}
+
+.presentation-slide > :first-child {
+  margin-top: 0;
+}
+
+.presentation-toolbar {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  background: rgba(15, 23, 42, 0.94);
+  color: #f8fafc;
+  box-shadow: 0 1rem 2.4rem rgba(15, 23, 42, 0.22);
+}
+
+.presentation-toolbar__group,
+.presentation-toolbar__status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.presentation-toolbar__status {
+  justify-content: center;
+  text-align: center;
+}
+
+.presentation-toolbar__title {
+  font-weight: 600;
+}
+
+.presentation-toolbar__progress {
+  color: #cbd5e1;
+}
+
+.presentation-toolbar__link {
+  color: #e2e8f0;
+  text-decoration: none;
+  border: 1px solid rgba(226, 232, 240, 0.28);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+}
+
+.presentation-toolbar__link:hover {
+  background: rgba(226, 232, 240, 0.12);
+}
+
+.presentation-toolbar__link--primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.presentation-toolbar__link--primary:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 50rem) {
+  .presentation-toolbar {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .presentation-toolbar__group,
+  .presentation-toolbar__status {
+    justify-content: center;
+  }
+
+  body.presentation-mode .main-content h1 {
+    font-size: 2.35rem;
+  }
+
+  .presentation-slide {
+    min-height: calc(100vh - 13rem);
+  }
+}

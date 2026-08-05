@@ -30,4 +30,6 @@ The following steps are executed in a typical Terraform workflow:
 
 ---
 
+<div class="slide-break"></div>
+
 ![Terraform workflow overview]({{ site.baseurl }}/assets/images/intro-terraform-workflow.png)
