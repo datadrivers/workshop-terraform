@@ -10,6 +10,11 @@ This workshop is designed for beginners and gives an introduction to the basic c
 
 [Open presentation mode]({{ '/presentation/' | relative_url }}) for a workshop-friendly launcher that reuses the existing chapter pages.
 
+After the shared Terraform foundations and the trainer's `local_file` demonstration, choose a track:
+
+- [Continue with the standard Terraform track](handson-exercises/handson2.markdown)
+- [Switch to the Snowflake workshop](handson-exercises/snowflake/index.md)
+
 ## Requirements
 
 In order to participate in the workshop, the following requirements should be met:

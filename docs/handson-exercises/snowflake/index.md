@@ -11,6 +11,8 @@ has_children: true
 
 These optional hands-on exercises extend the Terraform workshop with Snowflake examples.
 
+Open this track after the shared Terraform foundations and the trainer-only `local_file` demonstration. Participants do not need to complete the standard cloud-storage exercises before switching here.
+
 ## Workshop agenda
 
 The Snowflake track follows the agreed six-hour workshop structure:
