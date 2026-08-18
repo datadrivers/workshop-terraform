@@ -133,7 +133,7 @@ Review the displayed plan and confirm with `yes`. Then display the current role:
 terraform output current_role
 ```
 
-This output is the success criterion for Hands-on 1. Continue with [Hands-on 2: Snowflake objects](handson2.markdown) only after the role is displayed successfully.
+This output is the success criterion for Hands-on 1. Continue with [Hands-on 2: Snowflake objects]({{ '/handson/snowflake/2' | relative_url }}) only after the role is displayed successfully.
 
 ## Step 6: Inspect the Terraform files
 

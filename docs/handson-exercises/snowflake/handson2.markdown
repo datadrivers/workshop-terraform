@@ -7,7 +7,7 @@ nav_order: 2
 
 # Hands-on 2: Snowflake objects
 
-This exercise builds on [Hands-on 1: Snowflake provider](handson1.markdown). Use the same Terraform project and the same `SNOWFLAKE_PROFILE` environment variable.
+This exercise builds on [Hands-on 1: Snowflake provider]({{ '/handson/snowflake/1' | relative_url }}). Use the same Terraform project and the same `SNOWFLAKE_PROFILE` environment variable.
 
 ## Goal
 

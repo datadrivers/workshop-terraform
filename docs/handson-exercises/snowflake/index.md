@@ -28,13 +28,13 @@ The Snowflake track follows the agreed six-hour workshop structure:
 Module 2 is split into two small consecutive exercises:
 
 - 20 min: introduction and provider setup
-- 25 min: [Hands-on 1: Snowflake provider](handson1.markdown), which reads the current role
-- 45 min: [Hands-on 2: Snowflake objects](handson2.markdown), which creates the database and schema
+- 25 min: [Hands-on 1: Snowflake provider]({{ '/handson/snowflake/1' | relative_url }}), which reads the current role
+- 45 min: [Hands-on 2: Snowflake objects]({{ '/handson/snowflake/2' | relative_url }}), which creates the database and schema
 
 Use one cumulative Terraform project for the Snowflake track. Later exercises build on the provider, state, and database created here.
 
 The remaining modules are:
 
-- [Hands-on 3: State and drift](handson3.markdown)
-- [Hands-on 4: Variables and outputs](handson4.markdown)
-- [Hands-on 5: Cleanup and next steps](handson5.markdown)
+- [Hands-on 3: State and drift]({{ '/handson/snowflake/3' | relative_url }})
+- [Hands-on 4: Variables and outputs]({{ '/handson/snowflake/4' | relative_url }})
+- [Hands-on 5: Cleanup and next steps]({{ '/handson/snowflake/5' | relative_url }})
