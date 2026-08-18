@@ -75,6 +75,14 @@
   const pages = params.get("track") === "snowflake" ? snowflakePages : standardPages;
   const sectionMode = params.get("sections") === "1";
 
+  if (currentPathWithoutQuery() === normalize("{{ '/track-selection/' | relative_url }}") && sectionMode) {
+    document.querySelectorAll('a[href*="track="]').forEach(function (link) {
+      const url = new URL(link.href, window.location.origin);
+      url.searchParams.set("sections", "1");
+      link.href = url.pathname + url.search;
+    });
+  }
+
   const currentPath = currentPathWithoutQuery();
   const currentIndex = pages.findIndex(function (page) {
     return normalize(page.path) === currentPath;
