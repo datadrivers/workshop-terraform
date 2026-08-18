@@ -23,7 +23,7 @@ Confirm that `terraform.tfvars` still contains your own suffix, then run:
 terraform plan -destroy
 ```
 
-Read the plan carefully. It must target only the database with your suffix, its `LAB` schema, the `ORDERS` table, and `WORKSHOP_WH`.
+Read the plan carefully. It must target only the database with your suffix, its `LAB` schema, the `ORDERS` table, and `WORKSHOP_WH_<USER_SUFFIX>`.
 
 ## Step 2: Destroy the resources
 

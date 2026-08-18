@@ -62,7 +62,7 @@ Use the variables in the warehouse and table resources:
 
 ```hcl
 resource "snowflake_warehouse" "workshop" {
-  name                = "WORKSHOP_WH"
+  name                = "WORKSHOP_WH_${upper(var.user_suffix)}"
   warehouse_size      = var.warehouse_size
   auto_suspend        = var.warehouse_auto_suspend
   auto_resume         = true
