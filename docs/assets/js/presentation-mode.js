@@ -1,13 +1,15 @@
 ---
 ---
 (function () {
-  const pages = [
-    { path: "{{ '/presentation/' | relative_url }}", title: "Workshop Overview" },
+  const sharedPages = [
     { path: "{{ '/track-selection/' | relative_url }}", title: "Choose your workshop track" },
     { path: "{{ '/components/' | relative_url }}", title: "Core Components" },
     { path: "{{ '/workflow/' | relative_url }}", title: "Typical Terraform workflow" },
     { path: "{{ '/language/' | relative_url }}", title: "Configuration Language" },
-    { path: "{{ '/handson/1' | relative_url }}", title: "Trainer demo: First apply" },
+    { path: "{{ '/handson/1' | relative_url }}", title: "Trainer demo: First apply" }
+  ];
+
+  const standardPages = sharedPages.concat([
     { path: "{{ '/handson/2' | relative_url }}", title: "HandsOn: Cloud Storage" },
     { path: "{{ '/dependencies/' | relative_url }}", title: "Dependencies" },
     { path: "{{ '/handson/3' | relative_url }}", title: "HandsOn: Cloud Storage with upload" },
@@ -15,7 +17,16 @@
     { path: "{{ '/handson/4' | relative_url }}", title: "HandsOn: Modules" },
     { path: "{{ '/best-practices/' | relative_url }}", title: "Best Practices" },
     { path: "{{ '/next/' | relative_url }}", title: "What's next" }
-  ];
+  ]);
+
+  const snowflakePages = sharedPages.concat([
+    { path: "{{ '/handson/snowflake/' | relative_url }}", title: "Snowflake workshop overview" },
+    { path: "{{ '/handson/snowflake/1' | relative_url }}", title: "Snowflake Hands-on 1" },
+    { path: "{{ '/handson/snowflake/2' | relative_url }}", title: "Snowflake Hands-on 2" },
+    { path: "{{ '/handson/snowflake/3' | relative_url }}", title: "Snowflake Hands-on 3" },
+    { path: "{{ '/handson/snowflake/4' | relative_url }}", title: "Snowflake Hands-on 4" },
+    { path: "{{ '/handson/snowflake/5' | relative_url }}", title: "Snowflake Hands-on 5" }
+  ]);
 
   function normalize(path) {
     return path.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
@@ -24,6 +35,11 @@
   function buildPresentationPath(path, useSections, hash) {
     const url = new URL(path, window.location.origin);
     url.searchParams.set("presentation", "1");
+
+    const track = params.get("track");
+    if (track) {
+      url.searchParams.set("track", track);
+    }
 
     if (useSections) {
       url.searchParams.set("sections", "1");
@@ -56,6 +72,7 @@
     return;
   }
 
+  const pages = params.get("track") === "snowflake" ? snowflakePages : standardPages;
   const sectionMode = params.get("sections") === "1";
 
   const currentPath = currentPathWithoutQuery();
