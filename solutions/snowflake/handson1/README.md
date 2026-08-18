@@ -15,3 +15,11 @@ terraform output current_role
 ```
 
 The expected behavior is a successful provider connection and a current-role output with no managed resources.
+
+## Inputs
+
+This data-only module has no input variables.
+
+## Outputs
+
+- `current_role`: The primary Snowflake role used by the provider session.
