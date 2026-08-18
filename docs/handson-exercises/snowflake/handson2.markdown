@@ -1,5 +1,5 @@
 ---
-title: Hands-on 2: Snowflake objects
+title: "Hands-on 2: Snowflake objects"
 permalink: /handson/snowflake/2
 parent: Snowflake
 nav_order: 2

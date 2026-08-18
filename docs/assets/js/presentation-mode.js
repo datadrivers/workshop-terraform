@@ -3,6 +3,7 @@
 (function () {
   const pages = [
     { path: "{{ '/presentation/' | relative_url }}", title: "Workshop Overview" },
+    { path: "{{ '/track-selection/' | relative_url }}", title: "Choose your workshop track" },
     { path: "{{ '/components/' | relative_url }}", title: "Core Components" },
     { path: "{{ '/workflow/' | relative_url }}", title: "Typical Terraform workflow" },
     { path: "{{ '/language/' | relative_url }}", title: "Configuration Language" },

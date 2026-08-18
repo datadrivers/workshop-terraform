@@ -1,5 +1,5 @@
 ---
-title: Hands-on 3: State and drift
+title: "Hands-on 3: State and drift"
 permalink: /handson/snowflake/3
 parent: Snowflake
 nav_order: 3
