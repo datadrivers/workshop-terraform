@@ -14,9 +14,14 @@ bundle exec jekyll serve
 
 or if you do not have faith in your local ruby installation
 
-```bash
-docker run --rm -ti -p 4000:4000 -v "$(pwd)":/repo ruby:3.2.8-bookworm /repo/run.sh
+```bash { name=Run website in Docker }
+docker run --rm -ti -p 4000:4000 \
+  -v "$(pwd)":/repo:ro \
+  -v workshop-terraform-bundle:/usr/local/bundle \
+  ruby:3.2.8-bookworm /repo/run.sh
 ```
+
+The named `workshop-terraform-bundle` volume caches the installed Ruby gems between container runs. Remove it with `docker volume rm workshop-terraform-bundle` when the dependency cache needs to be rebuilt.
 
 ## Presentation mode
 

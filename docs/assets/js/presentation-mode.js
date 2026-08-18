@@ -6,26 +6,28 @@
     { path: "{{ '/components/' | relative_url }}", title: "Core Components" },
     { path: "{{ '/workflow/' | relative_url }}", title: "Typical Terraform workflow" },
     { path: "{{ '/language/' | relative_url }}", title: "Configuration Language" },
-    { path: "{{ '/handson/1' | relative_url }}", title: "Trainer demo: First apply" }
+    { path: "{{ '/handson/1' | relative_url }}", title: "Guided demonstration: First Apply" }
   ];
 
   const standardPages = sharedPages.concat([
-    { path: "{{ '/handson/2' | relative_url }}", title: "HandsOn: Cloud Storage" },
+    { path: "{{ '/handson/2' | relative_url }}", title: "Hands-on: Cloud Storage" },
     { path: "{{ '/dependencies/' | relative_url }}", title: "Dependencies" },
-    { path: "{{ '/handson/3' | relative_url }}", title: "HandsOn: Cloud Storage with upload" },
+    { path: "{{ '/handson/3' | relative_url }}", title: "Hands-on: Cloud Storage with upload" },
     { path: "{{ '/modules/' | relative_url }}", title: "Modules" },
-    { path: "{{ '/handson/4' | relative_url }}", title: "HandsOn: Modules" },
+    { path: "{{ '/handson/4' | relative_url }}", title: "Hands-on: Modules" },
     { path: "{{ '/best-practices/' | relative_url }}", title: "Best Practices" },
     { path: "{{ '/next/' | relative_url }}", title: "What's next" }
   ]);
 
-  const snowflakePages = sharedPages.concat([
-    { path: "{{ '/handson/snowflake/' | relative_url }}", title: "Snowflake workshop overview" },
-    { path: "{{ '/handson/snowflake/1' | relative_url }}", title: "Snowflake Hands-on 1" },
-    { path: "{{ '/handson/snowflake/2' | relative_url }}", title: "Snowflake Hands-on 2" },
-    { path: "{{ '/handson/snowflake/3' | relative_url }}", title: "Snowflake Hands-on 3" },
-    { path: "{{ '/handson/snowflake/4' | relative_url }}", title: "Snowflake Hands-on 4" },
-    { path: "{{ '/handson/snowflake/5' | relative_url }}", title: "Snowflake Hands-on 5" }
+  const snowflakePages = [
+    sharedPages[0],
+    { path: "{{ '/handson/snowflake/' | relative_url }}", title: "Snowflake workshop overview" }
+  ].concat(sharedPages.slice(1)).concat([
+    { path: "{{ '/handson/snowflake/1' | relative_url }}", title: "Hands-on 1: Snowflake provider" },
+    { path: "{{ '/handson/snowflake/2' | relative_url }}", title: "Hands-on 2: Snowflake objects" },
+    { path: "{{ '/handson/snowflake/3' | relative_url }}", title: "Hands-on 3: State and drift" },
+    { path: "{{ '/handson/snowflake/4' | relative_url }}", title: "Hands-on 4: Variables and outputs" },
+    { path: "{{ '/handson/snowflake/5' | relative_url }}", title: "Hands-on 5: Cleanup and next steps" }
   ]);
 
   function normalize(path) {
@@ -139,7 +141,14 @@
       return null;
     }
 
-    const children = Array.from(mainContent.children);
+    const allChildren = Array.from(mainContent.children);
+    const tableOfContentsIndex = allChildren.findIndex(function (node) {
+      return node.tagName
+        && node.tagName.toLowerCase() === "h2"
+        && node.classList.contains("text-delta")
+        && node.textContent.trim().toLowerCase() === "table of contents";
+    });
+    const children = allChildren.slice(0, tableOfContentsIndex >= 0 ? tableOfContentsIndex : allChildren.length);
     if (children.length === 0) {
       return null;
     }
@@ -152,6 +161,11 @@
     let currentSectionTitle = currentPage.title || document.title || "Introduction";
     let currentSubsectionTitle = "";
     let currentSlideBodyNodes = 0;
+    const groupedCommandPages = [
+      "{{ '/components/' | relative_url }}",
+      "{{ '/workflow/' | relative_url }}"
+    ];
+    const splitCommandMarkers = !groupedCommandPages.includes(currentPage.path);
 
     const titleSlide = document.createElement("section");
     titleSlide.className = "presentation-slide presentation-slide--title";
@@ -178,9 +192,6 @@
     }
 
     function contextLabel(sectionTitle, subTitle) {
-      if (subTitle && sectionTitle && subTitle !== sectionTitle) {
-        return sectionTitle + " · " + subTitle;
-      }
       return subTitle || sectionTitle;
     }
 
@@ -241,10 +252,11 @@
         currentSectionTitle = node.textContent.trim() || "Section";
         currentSubsectionTitle = "";
         startSlide(currentSectionTitle, currentSectionTitle);
-      } else if (tagName === "h3") {
+      } else if ((tagName === "h3" || tagName === "h4")
+        && currentSectionTitle.toLowerCase() !== "common pitfalls") {
         currentSubsectionTitle = node.textContent.trim() || "Details";
         startSlide(composedTitle(currentSectionTitle, currentSubsectionTitle, false), contextLabel(currentSectionTitle, currentSubsectionTitle));
-      } else if (isCommandMarker(node)) {
+      } else if (splitCommandMarkers && isCommandMarker(node)) {
         const commandTitle = commandMarkerTitle(node);
         startSlide(composedTitle(currentSectionTitle, commandTitle, false), contextLabel(currentSectionTitle, commandTitle));
         currentSubsectionTitle = commandTitle;
@@ -257,7 +269,7 @@
 
       currentSlide.appendChild(node);
 
-      if (tagName !== "h2" && tagName !== "h3") {
+      if (tagName !== "h2" && tagName !== "h3" && tagName !== "h4") {
         currentSlideBodyNodes += 1;
       }
     });
@@ -330,7 +342,7 @@
       }
     };
 
-    slideState.set(parseRequestedSlide(slides.length));
+    slideState.set(parseRequestedSlide(nonEmptySlides.length));
     return slideState;
   }
 
@@ -350,10 +362,13 @@
           ? buildPresentationPath(nextPage.path, true, "#slide-0")
           : null;
 
+      const crossesPreviousChapter = slideState.index === 0 && !!previousPage;
+      const crossesNextChapter = slideState.index === slideState.count() - 1 && !!nextPage;
+
       return {
-        previousLabel: "Previous section",
+        previousLabel: crossesPreviousChapter ? "Previous chapter" : "Previous section",
         previousHref: previousSlideHref,
-        nextLabel: "Next section",
+        nextLabel: crossesNextChapter ? "Next chapter" : "Next section",
         nextHref: nextSlideHref
       };
     }

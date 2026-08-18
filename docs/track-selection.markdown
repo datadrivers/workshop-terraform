@@ -25,7 +25,7 @@ nav_exclude: true
     <h2>Snowflake workshop</h2>
     <p>Reuse the same Terraform foundations, then continue with the Snowflake overview and Snowflake hands-on exercises.</p>
     <div class="presentation-launcher__links">
-      <a href="{{ '/components/' | relative_url }}?presentation=1&amp;track=snowflake">Start Snowflake foundations</a>
+      <a href="{{ '/handson/snowflake/' | relative_url }}?presentation=1&amp;track=snowflake">Start Snowflake foundations</a>
       <a href="{{ '/handson/snowflake/' | relative_url }}">Open Snowflake track</a>
     </div>
   </section>

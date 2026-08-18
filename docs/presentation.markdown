@@ -22,14 +22,14 @@ nav_exclude: true
 <ul>
   <li>The existing workshop pages stay unchanged as the source material.</li>
   <li>Appending <code>?presentation=1</code> opens a chapter in presenter mode.</li>
-  <li>Appending <code>?presentation=1&amp;sections=1</code> turns each <code>##</code> section into its own slide.</li>
+  <li>Appending <code>?presentation=1&amp;sections=1</code> creates a title slide, then splits at <code>##</code>, <code>###</code>, and <code>####</code> headings, bold command markers, and explicit slide breaks.</li>
   <li>Left and right arrow keys move between chapters or sections, depending on the selected mode.</li>
   <li>The bottom toolbar lets you jump back to the overview or open the normal docs view.</li>
 </ul>
 
 <h2>Workshop flow</h2>
 
-<p>The track selection is the first presentation chapter. After choosing a track, both paths reuse the shared Terraform foundation chapters before continuing with their respective exercises.</p>
+<p>The track selection is the first presentation chapter. The Snowflake path shows its overview next, then both paths reuse the shared Terraform foundation chapters before continuing with their respective exercises.</p>
 
 <div class="presentation-launcher__grid">
   <section class="presentation-launcher__card">
@@ -57,7 +57,7 @@ nav_exclude: true
     </div>
   </section>
   <section class="presentation-launcher__card">
-    <h3>4. Trainer demo: First apply</h3>
+    <h3>4. Guided demonstration: First Apply</h3>
     <p>Short local resource demonstration of the basic Terraform command loop.</p>
     <div class="presentation-launcher__links">
       <a href="{{ '/handson/1' | relative_url }}?presentation=1">Present</a>

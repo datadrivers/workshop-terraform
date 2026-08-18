@@ -1,33 +1,38 @@
 ---
-title: First apply
+title: First Apply
 permalink: /handson/1
-parent: HandsOn exercises
+parent: Hands-on exercises
 nav_order: 1
 ---
 
-# HandsOn exercises "First apply"
+# Hands-on exercises "First Apply"
 
-## Goal
+## Exercise
 
-You should get to know the Terraform workflow with a simple module
+**Goal:** Learn the Terraform workflow by creating and inspecting a local file resource.
 
-## Steps
+**Steps:** Follow these steps:
 
-1. Create new folder
-2. Switch to the new folder
-3. Create file `main.tf` with following content
+1. Create a new folder.
+2. Switch to the new folder.
+3. Create `main.tf` with the following content:
 
    ```hcl
    resource "local_file" "foo" {
-      content         = "foo!"
-      filename        = "${path.module}/foo.bar"
-      file_permission = "0644"
+     content         = "foo!"
+     filename        = "${path.module}/foo.bar"
+     file_permission = "0644"
    }
    ```
 
-3. Run terraform workflow commands
-   - `init`
-   - `plan`
-   - `apply`
-   - `output`
-   - `plan`
+4. Run the Terraform workflow:
+
+   ```bash
+   terraform init
+   terraform plan
+   terraform apply
+   terraform output
+   terraform plan
+   ```
+
+The final plan should report no changes. The resource is already in the desired state.

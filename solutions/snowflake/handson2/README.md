@@ -1,4 +1,4 @@
-# Snowflake Hands-on 2
+# Snowflake hands-on 2
 
 Creates the participant-specific database and the `LAB` schema using the `user_suffix` variable.
 
