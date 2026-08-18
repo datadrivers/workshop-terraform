@@ -62,8 +62,35 @@ nav_exclude: true
       <a href="{{ '/handson/1' | relative_url }}">Docs</a>
     </div>
   </section>
+
+  </div>
+
+  <section class="presentation-track-selector">
+    <h2>Choose your workshop track</h2>
+    <p>After the shared Terraform foundations and the trainer demonstration, choose how to continue.</p>
+    <div class="presentation-launcher__grid">
+      <section class="presentation-launcher__card">
+        <h3>Continue with the standard Terraform track</h3>
+        <p>Continue with cloud storage, dependencies, modules, and the existing workshop exercises.</p>
+        <div class="presentation-launcher__links">
+          <a href="{{ '/handson/2' | relative_url }}?presentation=1">Start standard track</a>
+          <a href="{{ '/handson/2' | relative_url }}">Docs</a>
+        </div>
+      </section>
+      <section class="presentation-launcher__card">
+        <h3>Switch to the Snowflake workshop</h3>
+        <p>Continue with the five-module Snowflake track, starting with provider authentication and the current role.</p>
+        <div class="presentation-launcher__links">
+          <a href="{{ '/handson/snowflake/' | relative_url }}?presentation=1">Present Snowflake track</a>
+          <a href="{{ '/handson/snowflake/' | relative_url }}">Docs</a>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <div class="presentation-launcher__grid">
   <section class="presentation-launcher__card">
-    <h3>5. HandsOn: Cloud Storage</h3>
+    <h3>5. Standard track: Cloud Storage</h3>
     <p>First cloud resource example with a bucket as the foundation for later exercises.</p>
     <div class="presentation-launcher__links">
       <a href="{{ '/handson/2' | relative_url }}?presentation=1">Present</a>
@@ -79,7 +106,7 @@ nav_exclude: true
     </div>
   </section>
   <section class="presentation-launcher__card">
-    <h3>7. HandsOn: Cloud Storage with upload</h3>
+    <h3>7. Standard track: Cloud Storage with upload</h3>
     <p>Remote state and file upload on top of the earlier storage exercise.</p>
     <div class="presentation-launcher__links">
       <a href="{{ '/handson/3' | relative_url }}?presentation=1">Present</a>
@@ -95,7 +122,7 @@ nav_exclude: true
     </div>
   </section>
   <section class="presentation-launcher__card">
-    <h3>9. HandsOn: Modules</h3>
+    <h3>9. Standard track: Modules</h3>
     <p>Refactor the exercise code into reusable modules.</p>
     <div class="presentation-launcher__links">
       <a href="{{ '/handson/4' | relative_url }}?presentation=1">Present</a>
@@ -119,27 +146,5 @@ nav_exclude: true
     </div>
   </section>
 </div>
-
-<section class="presentation-track-selector">
-  <h2>Choose your workshop track</h2>
-  <p>After the shared Terraform foundations and the trainer demonstration, choose how to continue.</p>
-  <div class="presentation-launcher__grid">
-    <section class="presentation-launcher__card">
-      <h3>Continue with the standard Terraform track</h3>
-      <p>Continue with cloud storage, dependencies, modules, and the existing workshop exercises.</p>
-      <div class="presentation-launcher__links">
-        <a href="{{ '/handson/2' | relative_url }}?presentation=1">Start standard track</a>
-        <a href="{{ '/handson/2' | relative_url }}">Docs</a>
-      </div>
-    </section>
-    <section class="presentation-launcher__card">
-      <h3>Switch to the Snowflake workshop</h3>
-      <p>Continue with the five-module Snowflake track, starting with provider authentication and the current role.</p>
-      <div class="presentation-launcher__links">
-        <a href="{{ '/handson/snowflake/' | relative_url }}">Open Snowflake track</a>
-      </div>
-    </section>
-  </div>
-</section>
 
 </div>
