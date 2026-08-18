@@ -96,7 +96,7 @@ Try a plan with a variable override without editing files:
 terraform plan -var='warehouse_size=SMALL'
 ```
 
-Review how Terraform proposes the warehouse change. Do not apply the override unless the trainer requests it.
+Review how Terraform proposes the warehouse change. Do not apply the override unless the workshop exercise explicitly requires it.
 
 ## Common pitfalls
 
@@ -112,8 +112,8 @@ Some Snowflake values are known only after the provider reads or creates the obj
 
 Prefer direct resource references when a dependency is expressed by a value such as a database or schema name.
 
-## Trainer notes
+## Checkpoint
 
-- Show the precedence of defaults, `terraform.tfvars`, and `-var` command-line overrides.
-- Ask participants to identify each implicit dependency from the HCL references.
+- Observe the precedence of defaults, `terraform.tfvars`, and `-var` command-line overrides.
+- Identify each implicit dependency from the HCL references.
 - Keep warehouse defaults conservative to avoid unnecessary Snowflake compute cost.

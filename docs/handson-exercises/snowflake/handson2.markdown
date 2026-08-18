@@ -104,15 +104,15 @@ Terraform does not initially know about manually created objects. Check that `te
 
 ### `insufficient privileges`
 
-The provider login works, but the current role cannot create databases or schemas. Check the role from Hands-on 1 with `terraform output current_role` and discuss the required privileges with the trainer.
+The provider login works, but the current role cannot create databases or schemas. Check the role from Hands-on 1 with `terraform output current_role` and verify that it has the privileges required for this exercise.
 
 ### The schema is created in the wrong database
 
 Check that the schema uses `snowflake_database.workshop.name`, not a duplicated or misspelled database name.
 
-## Trainer notes
+## Checkpoint
 
 - Keep Hands-on 1 as the known-good authentication baseline.
-- Check each participant's `terraform.tfvars` before `apply` to prevent name collisions.
-- Ask participants to predict the resource order before running `apply`.
+- Confirm that `terraform.tfvars` contains your unique suffix before `apply` to prevent name collisions.
+- Predict the resource order before running `apply`.
 - Use a short username or initials as the database suffix; the configuration uppercases it for the database name. Resources inside the database can use shared names.

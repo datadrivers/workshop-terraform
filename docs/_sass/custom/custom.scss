@@ -36,12 +36,88 @@
   margin-top: 0.75rem;
 }
 
+.terraform-building-blocks {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0.75rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.terraform-building-blocks__item {
+  display: flex;
+  min-height: 7rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-top: 0.35rem solid #0f766e;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.terraform-building-blocks__item strong {
+  color: #0f172a;
+}
+
+.terraform-building-blocks__item span {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.terraform-building-blocks__item--code {
+  border-top-color: #0f766e;
+}
+
+.terraform-building-blocks__item--state {
+  border-top-color: #2563eb;
+}
+
+.terraform-building-blocks__item--providers {
+  border-top-color: #d97706;
+}
+
+.terraform-building-blocks__item--cli {
+  border-top-color: #7c3aed;
+}
+
+.terraform-building-blocks__connector {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 60rem) {
+  .terraform-building-blocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .terraform-building-blocks__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 36rem) {
+  .terraform-building-blocks {
+    grid-template-columns: 1fr;
+  }
+}
+
 body.presentation-mode .side-bar,
 body.presentation-mode .main-header {
   display: none !important;
 }
 
 .slide-break {
+  display: none;
+}
+
+.main-content h2.text-delta:not(:has(+ ul > li)),
+.main-content h2.text-delta:not(:has(+ ul > li)) + ul,
+.main-content h2.text-delta:not(:has(+ ul > li)) + ul + hr {
   display: none;
 }
 
@@ -110,7 +186,10 @@ body.presentation-mode--sections .main-content {
 
 .presentation-slide {
   display: none;
+  box-sizing: border-box;
   min-height: calc(100vh - 10rem);
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
   padding: 1rem 0 5rem;
 }
 
@@ -129,7 +208,8 @@ body.presentation-mode--sections .main-content {
 
 body.presentation-mode--sections .presentation-slide > h1,
 body.presentation-mode--sections .presentation-slide > h2,
-body.presentation-mode--sections .presentation-slide > h3 {
+body.presentation-mode--sections .presentation-slide > h3,
+body.presentation-mode--sections .presentation-slide > h4 {
   display: none;
 }
 
@@ -152,6 +232,70 @@ body.presentation-mode--sections .presentation-slide--title > .presentation-slid
 
 .presentation-slide > :first-child {
   margin-top: 0;
+}
+
+body.presentation-mode--sections .presentation-slide > p:not(.presentation-slide__context) {
+  max-width: 58rem;
+  padding-left: 1rem;
+  border-left: 0.25rem solid #f59e0b;
+}
+
+body.presentation-mode--sections .presentation-slide > ul,
+body.presentation-mode--sections .presentation-slide > ol {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  padding-left: 1.75rem;
+  border: 1px solid #dbe4ee;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #f8fafc, #fff7ed);
+}
+
+body.presentation-mode--sections .presentation-slide > ul li,
+body.presentation-mode--sections .presentation-slide > ol li {
+  padding: 0.35rem 0.5rem;
+}
+
+body.presentation-mode--sections .presentation-slide > table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid #dbe4ee;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+body.presentation-mode--sections .presentation-slide > table th,
+body.presentation-mode--sections .presentation-slide > table td {
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+body.presentation-mode--sections .presentation-slide > table th {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+body.presentation-mode--sections .presentation-slide > table tr:last-child td {
+  border-bottom: 0;
+}
+
+body.presentation-mode--sections .presentation-slide > pre {
+  max-height: 42vh;
+  overflow: auto;
+  border-left: 0.25rem solid #0f766e;
+  box-shadow: 0 0.75rem 1.5rem rgba(15, 118, 110, 0.12);
+}
+
+body.presentation-mode--sections .presentation-slide > img {
+  max-width: 100%;
+  max-height: 42vh;
+  object-fit: contain;
 }
 
 .presentation-toolbar {
@@ -234,5 +378,11 @@ body.presentation-mode--sections .presentation-slide--title > .presentation-slid
 
   .presentation-slide {
     min-height: calc(100vh - 13rem);
+    max-height: calc(100vh - 10rem);
+  }
+
+  body.presentation-mode--sections .presentation-slide > pre,
+  body.presentation-mode--sections .presentation-slide > img {
+    max-height: 32vh;
   }
 }

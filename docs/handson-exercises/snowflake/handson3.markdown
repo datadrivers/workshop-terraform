@@ -99,8 +99,8 @@ The example uses `initially_suspended = true` and `auto_suspend = 60`. Avoid lea
 
 Run `terraform plan` after the manual Snowflake change. Do not edit the Terraform configuration while demonstrating drift.
 
-## Trainer notes
+## Checkpoint
 
-- Explain that state is a record of Terraform's last known relationship with remote objects.
-- Ask participants to compare configuration, state, and Snowflake after each command.
+- State is Terraform's last known relationship with remote objects.
+- Compare configuration, state, and Snowflake after each command.
 - Make only one controlled remote change so the plan remains easy to read.

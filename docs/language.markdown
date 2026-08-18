@@ -6,7 +6,7 @@ nav_order: 4
 
 # HashiCorp Configuration Language (HCL)
 
-In this section, the configuration language for Terraform is explained using [Version 2 of the first HandsOn solution](https://github.com/datadrivers/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
+In this section, the configuration language for Terraform is explained using [Version 2 of the first hands-on solution](https://github.com/datadrivers/workshop-terraform/tree/main/solutions/first-apply/v2){:target="_blank"}.
 
 The configuration language is used to describe the desired state of your infrastructure in a human-readable format. It is used to define the resources you want to create and configure.
 
@@ -20,10 +20,13 @@ resource "local_file" "foo" {
 }
 ```
 
-A resource block declares a resource of a given type (`"local_file"`) with a given local name (`"foo"`).
-The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside that module's scope.
-The resource type and name together serve as an identifier for a given resource and so must be unique within a module.
-Within the block body (between `{` and `}`) are the configuration arguments for the resource itself. Most arguments in this section depend on the resource type.
+A resource block declares a resource of a given type (`"local_file"`) with a local name (`"foo"`).
+
+The name lets other expressions refer to the resource inside the same module. It has no significance outside that module's scope.
+
+The resource type and name together identify the resource and must be unique within a module.
+
+The block body contains the resource arguments. Most arguments depend on the selected resource type.
 
 ## Data Sources
 
@@ -49,9 +52,9 @@ variable "file_content" {
 }
 ```
 
-Input variables let you customize aspects of Terraform modules without altering the module's own source code. This allows you to share modules across different Terraform configurations, making your module composable and reusable.
+Input variables customize a module without changing its source code. This makes a module reusable across different Terraform configurations.
 
-When you declare variables in the root module of your configuration, you can set their values using CLI options and environment variables. When you declare them in child modules, the calling module should pass values in the module block.
+In a root module, variable values can come from CLI options and environment variables. In a child module, the calling module passes values in the module block.
 
 ### Variable Arguments
 
@@ -69,8 +72,10 @@ Terraform defines the following optional arguments for variable declarations:
 * `string`: a sequence of Unicode characters representing some text, like "hello".
 * `number`: a numeric value. The number type can represent both whole numbers like 15 and fractional values like 6.283185.
 * `bool`: a boolean value, either true or false. bool values can be used in conditional logic.
-* `list` (or `set`): a sequence of values, like `["us-west-1a", "us-west-1c"]`. Elements in a list or set are identified by consecutive whole numbers, starting with zero.
-* `map` (or `object`): a group of values identified by named labels, like `{name = "Mabel", age = 52}`.
+* `list`: an ordered sequence of values that can be accessed by consecutive indexes, like `["us-west-1a", "us-west-1c"]`.
+* `set`: an unordered collection of unique values. Sets do not provide stable index-based access.
+* `map`: a collection of values of one type addressed by string keys, like `{primary = "eu-west-1", backup = "us-east-1"}`.
+* `object`: a structure with named attributes whose names and types are declared in the type constraint, like `{name = string, age = number}`.
 
 ### Set variables in terraform cli
 
@@ -102,9 +107,9 @@ Output values make information about your infrastructure available on the comman
 Terraform defines the following optional arguments for output declarations:
 
 * `value` - The required value argument takes an expression whose result is to be returned to the user
-* `description` - The description should concisely explain the purpose of the output and what kind of value is expected. This description string might be included in documentation about the module, and so it should be written from the perspective of the user of the module rather than its maintainer. For commentary for module maintainers, use comments.
+* `description` - Explain the output's purpose and expected value from the perspective of the module user. Use comments for maintainer-only notes.
 * `sensitive` - An output can be marked as containing sensitive material using the optional sensitive argument. Terraform will hide values marked as sensitive in the messages from `terraform plan` and `terraform apply`.
-* `depends_on` - Since output values are just a means for passing data out of a module, it is usually not necessary to worry about their relationships with other nodes in the dependency graph. However, when a parent module accesses an output value exported by one of its child modules, the dependencies of that output value allow Terraform to correctly determine the dependencies between resources defined in different modules.
+* `depends_on` - Usually unnecessary for outputs because resource references already create dependencies. Use it only when a parent module needs an output to wait for an indirect dependency in a child module.
 
 ## Local Values
 
@@ -160,7 +165,7 @@ The main kinds of named values available in Terraform are:
 * Filesystem and workspace info
   * `path.module` is the filesystem path of the module where the expression is placed.
   * `path.root` is the filesystem path of the root module of the configuration.
-  * `path.cwd` is the filesystem path of the current working directory. In normal use of Terraform this is the same as path.root, but some advanced uses of Terraform run it from a directory other than the root module directory, causing these paths to be different.
+  * `path.cwd` is the filesystem path from which Terraform was started. It normally matches `path.root`, but advanced workflows can run Terraform from another directory.
   * `terraform.workspace` is the name of the currently selected workspace.
 * Block-local values
   * `count.index`, in resources that use the count meta-argument.
@@ -178,11 +183,29 @@ The main kinds of named values available in Terraform are:
 
 ### Functions
 
-The Terraform language has a number of [built-in functions](https://developer.hashicorp.com/terraform/language/functions){:target="_blank"} that can be used in expressions to transform and combine values. These are similar to the operators but all follow a common syntax:
+The Terraform language provides [built-in functions](https://developer.hashicorp.com/terraform/language/functions){:target="_blank"} for transforming and combining values.
+
+All functions use the same syntax:
 
 ```
 <FUNCTION NAME>(<ARGUMENT 1>, <ARGUMENT 2>, ...)
 ```
+
+These functions cover common workshop and production tasks:
+
+| Function | Typical use | Example |
+| --- | --- | --- |
+| `upper` / `lower` | Normalize names or labels. | `upper(var.user_suffix)` |
+| `trimspace` | Remove accidental whitespace from input. | `trimspace(var.name)` |
+| `format` | Build a formatted string. | `format("%s-%s", var.prefix, var.name)` |
+| `join` / `split` | Convert between lists and delimited strings. | `join(",", var.tags)` |
+| `length` | Count characters or collection elements. | `length(var.users)` |
+| `contains` | Validate whether a list or set has a value. | `contains(["small", "medium"], var.size)` |
+| `merge` | Combine maps, with later values taking precedence. | `merge(var.common_tags, var.extra_tags)` |
+| `coalesce` | Select the first non-null, non-empty value. | `coalesce(var.name, "default")` |
+| `try` | Provide a fallback when an expression can fail. | `try(var.settings["name"], "default")` |
+
+Prefer simple expressions when a direct reference is enough. Use `try` and similar fallbacks deliberately, so configuration errors are not hidden accidentally.
 
 ### Conditions
 
@@ -196,7 +219,9 @@ condition ? true_val : false_val
 
 ### for Expressions (loops)
 
-A for expression creates a complex type value by transforming another complex type value. Each element in the input value can correspond to either one or zero values in the result, and an arbitrary expression can be used to transform each input element into an output element.
+A `for` expression transforms one complex value into another. Each input element can produce one value or no value in the result.
+
+The expression inside the loop can transform each input element into the desired output value.
 
 some examples:
 
@@ -209,11 +234,18 @@ some examples:
 
 ### Iteration over resources
 
-By default, a resource block configures one real infrastructure object. Sometimes you want to manage several similar objects (like a fixed pool of compute instances) without writing a separate block for each one. Terraform has two ways to do this: count and for_each.
+By default, a resource block configures one real infrastructure object.
+
+To manage several similar objects without writing a separate block for each one, Terraform provides two repetition patterns:
+
+* `count` creates a fixed number of instances.
+* `for_each` creates one instance for each item in a map or set.
 
 #### count
 
-The `count` meta-argument accepts a whole number, and creates that many instances of the resource or module. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+The `count` meta-argument accepts a whole number and creates that many instances of a resource or module.
+
+Each instance has a distinct infrastructure object and is created, updated, or destroyed separately when the configuration is applied.
 
 ```hcl
 resource "local_file" "foo" {
@@ -238,7 +270,9 @@ When count is set, Terraform distinguishes between the block itself and the mult
 
 #### for_each
 
-The `for_each` meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+The `for_each` meta-argument accepts a map or a set of strings and creates one instance for each item.
+
+Each instance has a distinct infrastructure object and is created, updated, or destroyed separately when the configuration is applied.
 
 ```hcl
 locals {
@@ -261,7 +295,9 @@ In blocks where for_each is set, an additional each object is available in expre
 * `each.key` — The map key (or set member) corresponding to this instance.
 * `each.value` — The map value corresponding to this instance. (If a set was provided, this is the same as each.key.)
 
-The keys of the map (or all the values in the case of a set of strings) must be known values, or you will get an error message that for_each has dependencies that cannot be determined before apply, and a -target may be needed.
+The map keys, or all values in a set of strings, must be known before Terraform can plan the instances.
+
+If they depend on values known only after apply, redesign the expression or apply the prerequisite configuration first. `-target` is an exceptional recovery tool, not the normal solution.
 
 ### Dynamic blocks
 
@@ -287,7 +323,7 @@ A dynamic block acts much like a for expression, but produces nested blocks inst
 
 * The label of the dynamic block (`"setting"` in the example above) specifies what kind of nested block to generate.
 * The `for_each` argument provides the complex value to iterate over.
-* The `iterator` argument (optional) sets the name of a temporary variable that represents the current element of the complex value. If omitted, the name of the variable defaults to the label of the dynamic block ("setting" in the example above).
+* The `iterator` argument is optional. It names the temporary variable for the current element. If omitted, it defaults to the dynamic block label, `setting` in the example above.
 * The labels argument (optional) is a list of strings that specifies the block labels, in order, to use for each generated block. You can use the temporary iterator variable in this value.
 * The nested *content* block defines the body of each generated block. You can use the temporary iterator variable inside this block.
 

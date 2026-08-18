@@ -59,8 +59,8 @@ A production workflow commonly runs formatting and validation on pull requests, 
 
 Production authentication should use short-lived or non-interactive credentials such as key pair or OAuth, with least-privilege roles and protected state.
 
-## Trainer notes
+## Checkpoint
 
 - Treat `terraform plan -destroy` as a safety review, not a formality.
-- Confirm the suffix before allowing `destroy` in a shared Snowflake account.
-- Make clear that `destroy` removes resources tracked in the current state; it does not remove unrelated Snowflake objects.
+- Confirm your suffix before running `destroy` in a shared Snowflake account.
+- Remember that `destroy` removes resources tracked in the current state; it does not remove unrelated Snowflake objects.

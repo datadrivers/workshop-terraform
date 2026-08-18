@@ -12,7 +12,9 @@ Every Terraform configuration has at least one module, known as its root module,
 
 ## Child Modules
 
-A Terraform module (usually the root module of a configuration) can call other modules to include their resources into the configuration. A module that has been called by another module is often referred to as a child module.
+A Terraform module can call another module to include its resources in the configuration.
+
+A module called by another module is referred to as a child module.
 
 Child modules can be called multiple times within the same configuration, and multiple configurations can use the same child module.
 
@@ -27,9 +29,13 @@ module "consul" {
 
 ## Published Modules
 
-In addition to modules from the local filesystem, Terraform can load modules from a public or private registry. This makes it possible to publish modules for others to use, and to use modules that others have published.
+Terraform can load modules from the local filesystem, a public registry, or a private registry.
 
-The [Terraform Registry](https://registry.terraform.io/){:target="_blank"} hosts a broad collection of publicly available Terraform modules for configuring many kinds of common infrastructure. These modules are free to use, and Terraform can download them automatically if you specify the appropriate source and version in a module call block.
+This allows teams to publish reusable modules and consume modules published by others.
+
+The [Terraform Registry](https://registry.terraform.io/){:target="_blank"} hosts publicly available modules for common infrastructure patterns.
+
+Terraform downloads a registry module automatically when its source and version are specified in a module block.
 
 ## Module arguments
 
@@ -46,10 +52,11 @@ Within the block body (between `{` and `}`) are the arguments for the module. Mo
 
 ## Module Sources
 
-The source argument in a module block tells Terraform where to find the source code for the desired child module.
+The `source` argument tells Terraform where to find the child module's source code.
 
-Terraform uses this during the module installation step of terraform init to download the source code to a directory on local disk so that it can be used by other Terraform commands.
-The module installer supports installation from a number of different source types, as listed below.
+During `terraform init`, Terraform downloads the source code to local disk so other commands can use it.
+
+The module installer supports several source types:
 
 * local paths - `source = "./consul"`
 * Terraform Registry - `source = "hashicorp/consul/aws"`
