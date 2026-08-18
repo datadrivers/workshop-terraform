@@ -14,7 +14,7 @@ This exercise builds on Hands-on 2. Continue in the same cumulative Terraform pr
 Add a table and warehouse, inspect local Terraform state, and observe drift:
 
 - Table `TF_WORKSHOP_<USER_SUFFIX>.LAB.ORDERS`
-- Warehouse `WORKSHOP_WH`
+- Warehouse `WORKSHOP_WH_<USER_SUFFIX>`
 
 ## Step 1: Add the table and warehouse
 
@@ -40,7 +40,7 @@ resource "snowflake_table" "orders" {
 }
 
 resource "snowflake_warehouse" "workshop" {
-  name                = "WORKSHOP_WH"
+  name                = "WORKSHOP_WH_${upper(var.user_suffix)}"
   warehouse_size      = "XSMALL"
   auto_suspend        = 60
   auto_resume         = true
