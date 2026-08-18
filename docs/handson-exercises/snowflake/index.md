@@ -11,7 +11,18 @@ has_children: true
 
 These optional hands-on exercises extend the Terraform workshop with Snowflake examples.
 
-Open this track after the shared Terraform foundations and the trainer-only `local_file` demonstration. Participants do not need to complete the standard cloud-storage exercises before switching here.
+Choose this track at the beginning of the workshop. It reuses the existing Core Components, Workflow, Configuration Language, and trainer `local_file` demonstration chapters before opening the Snowflake-specific handouts.
+
+## Shared chapters
+
+Use these existing chapters first:
+
+1. [Core Components]({{ '/components/' | relative_url }})
+2. [Typical Terraform workflow]({{ '/workflow/' | relative_url }})
+3. [Configuration Language]({{ '/language/' | relative_url }})
+4. [Trainer demonstration: First Apply]({{ '/handson/1' | relative_url }})
+
+Then continue with the Snowflake-specific hands-on exercises below.
 
 ## Workshop agenda
 

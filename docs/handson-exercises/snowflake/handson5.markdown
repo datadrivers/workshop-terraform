@@ -1,5 +1,5 @@
 ---
-title: Hands-on 5: Cleanup and next steps
+title: "Hands-on 5: Cleanup and next steps"
 permalink: /handson/snowflake/5
 parent: Snowflake
 nav_order: 5

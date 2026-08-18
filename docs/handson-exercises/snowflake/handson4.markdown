@@ -1,5 +1,5 @@
 ---
-title: Hands-on 4: Variables and outputs
+title: "Hands-on 4: Variables and outputs"
 permalink: /handson/snowflake/4
 parent: Snowflake
 nav_order: 4

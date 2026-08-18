@@ -12,8 +12,8 @@ nav_exclude: true
 <p>This is a lightweight presenter layer on top of the existing workshop pages. It keeps the normal documentation intact and opens each chapter in a cleaner workshop view with keyboard navigation.</p>
 
 <div class="presentation-launcher__actions">
-  <a class="btn btn-primary" href="{{ '/components/' | relative_url }}?presentation=1">Start chapter presentation</a>
-  <a class="btn" href="{{ '/components/' | relative_url }}?presentation=1&amp;sections=1">Start section slides</a>
+  <a class="btn btn-primary" href="{{ '/track-selection/' | relative_url }}?presentation=1">Choose workshop track</a>
+  <a class="btn" href="{{ '/track-selection/' | relative_url }}?presentation=1&amp;sections=1">Choose track in section mode</a>
   <a class="btn" href="{{ '/' | relative_url }}">Open normal docs</a>
 </div>
 
@@ -28,6 +28,8 @@ nav_exclude: true
 </ul>
 
 <h2>Workshop flow</h2>
+
+<p>The track selection is the first presentation chapter. After choosing a track, both paths reuse the shared Terraform foundation chapters before continuing with their respective exercises.</p>
 
 <div class="presentation-launcher__grid">
   <section class="presentation-launcher__card">
@@ -64,29 +66,6 @@ nav_exclude: true
   </section>
 
   </div>
-
-  <section class="presentation-track-selector">
-    <h2>Choose your workshop track</h2>
-    <p>After the shared Terraform foundations and the trainer demonstration, choose how to continue.</p>
-    <div class="presentation-launcher__grid">
-      <section class="presentation-launcher__card">
-        <h3>Continue with the standard Terraform track</h3>
-        <p>Continue with cloud storage, dependencies, modules, and the existing workshop exercises.</p>
-        <div class="presentation-launcher__links">
-          <a href="{{ '/handson/2' | relative_url }}?presentation=1">Start standard track</a>
-          <a href="{{ '/handson/2' | relative_url }}">Docs</a>
-        </div>
-      </section>
-      <section class="presentation-launcher__card">
-        <h3>Switch to the Snowflake workshop</h3>
-        <p>Continue with the five-module Snowflake track, starting with provider authentication and the current role.</p>
-        <div class="presentation-launcher__links">
-          <a href="{{ '/handson/snowflake/' | relative_url }}?presentation=1">Present Snowflake track</a>
-          <a href="{{ '/handson/snowflake/' | relative_url }}">Docs</a>
-        </div>
-      </section>
-    </div>
-  </section>
 
   <div class="presentation-launcher__grid">
   <section class="presentation-launcher__card">
