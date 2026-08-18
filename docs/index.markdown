@@ -12,8 +12,8 @@ This workshop is designed for beginners and gives an introduction to the basic c
 
 After the shared Terraform foundations and the trainer's `local_file` demonstration, choose a track:
 
-- [Continue with the standard Terraform track](handson-exercises/handson2.markdown)
-- [Switch to the Snowflake workshop](handson-exercises/snowflake/index.md)
+- [Continue with the standard Terraform track]({{ '/handson/2' | relative_url }})
+- [Switch to the Snowflake workshop]({{ '/handson/snowflake/' | relative_url }})
 
 ## Requirements
 
@@ -27,22 +27,25 @@ In order to participate in the workshop, the following requirements should be me
 
 ## Workshop content
 
-1. [Core Components](components.markdown) (approx. 15 min)
-2. [Typical Terraform workflow](workflow.markdown) (approx. 15 min)
-3. [HandsOn: "First Apply"](handson-exercises/handson1.markdown) (approx. 30 min)
-4. [HashiCorp Configuration Language (HCL)](language.markdown) Part 1 (approx. 45 min)
-5. Break (approx. 10 min)
-6. [HashiCorp Configuration Language (HCL)](language.markdown) Part 2 (approx. 45 min)
-7. [HandsOn: "Cloud Storage"](handson-exercises/handson2.markdown) (approx. 30 min)
-8. Break (approx. 40 min)
-9. [Dependencies](dependencies.markdown) (approx. 15 min)
-10. [HandsOn: "Cloud Storage Permissions"](handson-exercises/handson3.markdown) (approx. 30 min)
-11. [Modules](modules.markdown) (approx. 15 min)
-12. Break (approx. 10 min)
-13. [HandsOn: "Modules"](handson-exercises/handson4.markdown) (approx. 30 min)
-14. [Best Practices](best-practices.markdown) (approx. 15 min)
-15. Questions (approx. 15 min)
-16. [What's next](next.markdown) (approx. end of life ;-D)
+1. [Core Components]({{ '/components/' | relative_url }}) (approx. 15 min)
+2. [Typical Terraform workflow]({{ '/workflow/' | relative_url }}) (approx. 15 min)
+3. [HashiCorp Configuration Language (HCL)]({{ '/language/' | relative_url }}) Part 1 (approx. 45 min)
+4. Break (approx. 10 min)
+5. [HashiCorp Configuration Language (HCL)]({{ '/language/' | relative_url }}) Part 2 (approx. 45 min)
+6. Trainer demonstration: [First Apply]({{ '/handson/1' | relative_url }}) (approx. 15 min)
+7. Choose a track:
+  - [Continue with the standard Terraform track]({{ '/handson/2' | relative_url }})
+  - [Switch to the Snowflake workshop]({{ '/handson/snowflake/' | relative_url }})
+8. [HandsOn: "Cloud Storage"]({{ '/handson/2' | relative_url }}) (standard track, approx. 30 min)
+9. Break (approx. 40 min)
+10. [Dependencies]({{ '/dependencies/' | relative_url }}) (approx. 15 min)
+11. [HandsOn: "Cloud Storage with upload"]({{ '/handson/3' | relative_url }}) (standard track, approx. 30 min)
+12. [Modules]({{ '/modules/' | relative_url }}) (approx. 15 min)
+13. Break (approx. 10 min)
+14. [HandsOn: "Modules"]({{ '/handson/4' | relative_url }}) (standard track, approx. 30 min)
+15. [Best Practices]({{ '/best-practices/' | relative_url }}) (approx. 15 min)
+16. Questions (approx. 15 min)
+17. [What's next]({{ '/next/' | relative_url }}) (approx. end of life ;-D)
 
 (Total: 5h + 1h Break)
 
