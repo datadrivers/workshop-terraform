@@ -71,8 +71,10 @@ back_to_top_text: "Back to top"
 #
 exclude:
   - .gitignore
+  - agents/
   - .sass-cache/
   - .jekyll-cache/
+  - __pycache__/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
